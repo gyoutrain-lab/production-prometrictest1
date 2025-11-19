@@ -5,48 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nursing Prometric Actual Simulation Test</title>
 <style>
-  body { margin:0; font-family: Arial, sans-serif; background:#f7f9fc; text-align:center; overflow-x:hidden; }
-  
-  /* First top image */
-  .top-image { width:100%; height:50vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') no-repeat center/cover; position:relative; }
-  
-  /* Title & subtitle above everything */
-  .title-container {
-    position: relative; /* so it’s outside image but still on top */
-    z-index: 10;
-    margin-top: 20px;
-    color:#042d62;
-  }
-  .title-container h1 { font-size:28px; margin:0; }
-  .title-container h3 { font-size:18px; margin:5px 0; }
+body { margin:0; font-family: Arial,sans-serif; background:#f7f9fc; text-align:center; overflow-x:hidden; }
 
-  .social-icons img { width:32px; margin:0 6px; cursor:pointer; }
+/* Top hero image */
+.top-image { width:100%; height:50vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') no-repeat center/cover; }
 
-  /* Form container moved down 1/3 */
-  .form-container { 
-    max-width:400px; margin:80px auto 20px; padding:20px; background:white; 
-    border-radius:12px; box-shadow:0 0 15px rgba(0,0,0,0.1); text-align:left; 
-  }
-  .form-container label { font-weight:bold; display:block; margin-top:10px; }
-  .form-container input { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:16px; }
-  .form-container button { width:100%; margin-top:15px; padding:12px; font-size:16px; border:none; border-radius:6px; background:#042d62; color:white; cursor:pointer; }
-  .form-container button + button { margin-top:10px; background:#0056b3; }
+/* Title & subtitle above everything, fully visible */
+.title-container {
+  position: relative; z-index: 10; margin-top: 20px;
+  color:#042d62; text-align:center;
+}
+.title-container h1 { font-size:28px; margin:0; }
+.title-container h3 { font-size:18px; margin:5px 0; }
+.social-icons img { width:32px; margin:0 6px; cursor:pointer; }
 
-  /* Water flowing effect bottom half image */
-  .bottom-water {
-    width:100%; height:50vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom;
-    opacity:0.3;
-    filter: blur(3px);
-    position:relative;
-    animation: flow 10s linear infinite;
-  }
-  @keyframes flow {
-    0% { background-position-x: 0; }
-    100% { background-position-x: 1000px; }
-  }
+/* Bottom flowing image as BACKGROUND */
+.bottom-background {
+  position: relative;
+  width:100%;
+  min-height:50vh;
+  background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom;
+  opacity:0.2;
+  filter: blur(2px);
+  animation: flow 10s linear infinite;
+}
 
-  /* QR code bigger and moved down with form */
-  .qr { width:20%; margin-top:80px; display:block; margin-left:auto; margin-right:10px; }
+/* Flowing animation */
+@keyframes flow {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+
+/* QR code at right bottom corner */
+.qr {
+  position:absolute;
+  right:20px;
+  bottom:20px;
+  width:20%;
+}
+
+/* Form container at left bottom corner */
+.form-container {
+  position:absolute;
+  left:20px;
+  bottom:20px;
+  width:40%;
+  padding:20px;
+  background: rgba(255,255,255,0.95);
+  border-radius:12px;
+  box-shadow:0 0 15px rgba(0,0,0,0.15);
+  text-align:left;
+}
+.form-container label { font-weight:bold; display:block; margin-top:10px; }
+.form-container input { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:16px; }
+.form-container button { width:100%; margin-top:15px; padding:12px; font-size:16px; border:none; border-radius:6px; cursor:pointer; }
+.form-container button:nth-child(4) { background:gold; color:black; } /* Demo Test */
+.form-container button:nth-child(5) { background:blue; } /* Confirmation */
+.form-container button:nth-child(6) { background:green; } /* Continue Next Test */
 
 </style>
 </head>
@@ -55,7 +70,7 @@
 <!-- Top hero image -->
 <div class="top-image"></div>
 
-<!-- Title & subtitle outside the image -->
+<!-- Title & subtitle visible above all -->
 <div class="title-container">
   <h1>Nursing Prometric Actual Simulation Test</h1>
   <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE and NCLEX</h3>
@@ -68,27 +83,27 @@
   </div>
 </div>
 
-<!-- Form container moved down -->
-<div class="form-container" id="landingForm">
-  <label for="name">Full Name</label>
-  <input type="text" id="name" placeholder="Enter your full name">
-  
-  <label for="wa">WhatsApp Number</label>
-  <input type="text" id="wa" placeholder="e.g. 6285399652487">
+<!-- Bottom flowing background -->
+<div class="bottom-background">
+  <!-- QR code -->
+  <img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
 
-  <label for="unlock">Unlock Code</label>
-  <input type="text" id="unlock" placeholder="Enter Unlock Code">
+  <!-- Form container on left -->
+  <div class="form-container" id="landingForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name">
+    
+    <label for="wa">WhatsApp Number</label>
+    <input type="text" id="wa" placeholder="e.g. 6285399652487">
 
-  <button onclick="demoTest()">Demo Test (Free)</button>
-  <button onclick="confirmation()">Confirmation</button>
-  <button onclick="continueTest()">Continue Next Test</button>
+    <label for="unlock">Unlock Code</label>
+    <input type="text" id="unlock" placeholder="Enter Unlock Code">
+
+    <button onclick="demoTest()">Demo Test (Free)</button>
+    <button onclick="confirmation()">Confirmation</button>
+    <button onclick="continueTest()">Continue Next Test</button>
+  </div>
 </div>
-
-<!-- QR code bigger -->
-<img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
-
-<!-- Bottom water flowing image -->
-<div class="bottom-water"></div>
 
 <script>
 const backend = "https://script.google.com/macros/s/AKfycbyHtvmulVoW2r2DvJzPcCEtUpjBbwphDHrjw-9yO_LebrhdANdag3yYBygTWVKmbjNE/exec";
@@ -120,7 +135,6 @@ function continueTest(){
     .then(d=>{
       if(d.ok){
         document.getElementById("landingForm").style.display="none";
-        // load quiz here
         alert("Unlock code valid! Quiz will start.");
       } else {
         alert("Invalid or expired unlock code.");
@@ -128,5 +142,6 @@ function continueTest(){
     }).catch(e=>alert("Network error: "+e));
 }
 </script>
+
 </body>
 </html>
