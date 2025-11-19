@@ -7,6 +7,9 @@
 <style>
   body { margin:0; font-family: Arial, sans-serif; background:#f7f9fc; text-align:center; overflow-x:hidden; }
 
+  /* Front page */
+  #landingPage { width:100%; }
+
   /* Top static image */
   .top-image {
     width:100%;
@@ -14,7 +17,7 @@
     background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
   }
 
-  /* Flowing background image behind form/QR */
+  /* Flowing background image */
   .flowing-bg {
     position: relative;
     width:100%;
@@ -33,10 +36,10 @@
     100% { background-position: 0 bottom; }
   }
 
-  /* Title and subtitle always front */
+  /* Title and subtitle */
   .title-container {
     position: relative;
-    margin-top:-45vh; /* on top of flowing background */
+    margin-top:-45vh;
     text-align:center;
     color:#042d62;
     z-index:2;
@@ -45,15 +48,12 @@
   .title-container h3 { font-size:18px; margin:5px 0; }
   .social-icons img { width:32px; margin:0 6px; cursor:pointer; }
 
-  /* Front page container */
-  #landingPage { width:100%; }
-
-  /* Form container left below flowing background */
+  /* Form container left */
   .form-container {
     position: relative;
-    max-width:150px;  /* smaller width like QR */
+    max-width:150px;
     margin:0;
-    margin-top:-10px; /* adjust spacing below flowing image */
+    margin-top:-10px;
     padding:15px;
     background:white;
     border-radius:12px;
@@ -62,12 +62,9 @@
     z-index:1;
     float:left;
   }
-
   .form-container label { font-weight:bold; display:block; margin-top:10px; }
   .form-container input { width:100%; padding:8px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:14px; }
-
   .form-container button { width:100%; margin-top:10px; padding:10px; font-size:14px; border:none; border-radius:6px; cursor:pointer; }
-
   .demo-btn { background:gold; color:#000; }
   .confirm-btn { background:#0056b3; color:#fff; }
   .continue-btn { background:green; color:#fff; }
@@ -76,12 +73,12 @@
   .qr {
     position: relative;
     float:right;
-    width:150px; /* similar to form container */
-    margin-top:-10px; /* align with container */
+    width:150px;
+    margin-top:-10px;
     z-index:1;
   }
 
-  /* Quiz container (hidden initially) */
+  /* QUIZ PAGE */
   .quiz-container {
     max-width:720px;
     margin:50px auto;
@@ -93,8 +90,54 @@
     text-align:center;
     clear:both;
   }
-  .question { font-size:20px; margin:20px 0; }
-  .options button { width:100%; padding:14px; margin:8px 0; font-size:18px; border-radius:6px; border:1px solid #bbb; cursor:pointer; }
+
+  /* Question container */
+  .question-container {
+    background:#e0f0ff;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    font-size:1.8em; /* 3x bigger */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-height:100px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* Options container */
+  .options-container {
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+  }
+
+  .options-container button {
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    font-size:18px;
+    border-radius:6px;
+    border:1px solid #bbb;
+    cursor:pointer;
+    transition: all 0.3s;
+  }
+
+  .options-container button.correct {
+    background: linear-gradient(to right, #b3e5fc, #81d4fa);
+    color:#042d62;
+    text-shadow: 1px 1px 2px #fff;
+    box-shadow: 0 0 10px #81d4fa;
+  }
+
+  .options-container button.incorrect {
+    background: linear-gradient(to right, #ffcdd2, #ef9a9a);
+    color:#610000;
+    text-shadow: 1px 1px 2px #fff;
+    box-shadow: 0 0 10px #ef9a9a;
+  }
+
   #msg { font-weight:bold; margin:15px 0; min-height:24px; }
   #scorebox { margin-top:30px; font-size:18px; clear:both; }
 </style>
@@ -103,49 +146,31 @@
 
 <!-- FRONT PAGE -->
 <div id="landingPage">
-  <!-- Top static image -->
   <div class="top-image"></div>
-
-  <!-- Flowing background -->
   <div class="flowing-bg"></div>
-
-  <!-- Title and subtitle -->
   <div class="title-container">
     <h1>Nursing Prometric Actual Simulation Test</h1>
     <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE & NCLEX</h3>
-    <div class="social-icons">
-      <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"></a>
-      <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
-      <a href="mailto:gyoutrain@gmail.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"></a>
-      <a href="https://web.facebook.com/gyouskill/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-      <a href="https://www.instagram.com/etkyogya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
-    </div>
   </div>
 
-  <!-- Form container left -->
   <div class="form-container" id="landingForm">
     <label for="name">Full Name</label>
     <input type="text" id="name" placeholder="Enter your full name">
-
     <label for="wa">WhatsApp Number</label>
     <input type="text" id="wa" placeholder="e.g. 6285399652487">
-
     <label for="unlock">Unlock Code</label>
     <input type="text" id="unlock" placeholder="Enter Unlock Code">
-
     <button class="demo-btn" onclick="demoTest()">Demo Test (Free)</button>
     <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
     <button class="continue-btn" onclick="continueTest()">Continue Next Test</button>
   </div>
-
-  <!-- QR code right -->
   <img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
 </div>
 
-<!-- QUIZ PAGE (HIDDEN INITIALLY) -->
+<!-- QUIZ PAGE -->
 <div class="quiz-container" id="quizBox">
-  <div class="question" id="questionText"></div>
-  <div class="options">
+  <div class="question-container" id="questionText"></div>
+  <div class="options-container" id="optionsBox">
     <button class="option-btn" id="optA" onclick="checkAnswer('A')"></button>
     <button class="option-btn" id="optB" onclick="checkAnswer('B')"></button>
     <button class="option-btn" id="optC" onclick="checkAnswer('C')"></button>
@@ -155,55 +180,35 @@
   <div id="scorebox"></div>
 </div>
 
-<!-- Audio effects -->
-<audio id="audioCorrect" src="assets/correct.mp3" preload="auto"></audio>
+<!-- Audio -->
+<audio id="audioCorrect" src="assets/inspiring_correct.mp3" preload="auto"></audio>
 <audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
 
 <script>
 const backend = "https://script.google.com/macros/s/AKfycbyyZ09UJdmwjvPrMVqjEPZmkXa40cyfC-kH4KDhoDTx1vdmhhX5BV1UDi8rjZbGhcDQ/exec";
 
-// Landing buttons
-function demoTest(){
-  window.open("https://script.google.com/macros/s/AKfycbzXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec", "_blank");
-}
+function demoTest(){ window.open("https://script.google.com/macros/s/AKfycbzXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec", "_blank"); }
 
-// Confirmation
 async function confirmation() {
   const name = document.getElementById("name").value.trim();
   const wa = document.getElementById("wa").value.trim();
   if (!name || !wa) { alert("Please fill in Name and WhatsApp number."); return; }
-
-  try {
-    await fetch(backend, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "confirmation", name, phone: wa })
-    });
-    alert(`Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code.`);
-  } catch (err) {
-    alert("Network error: " + err);
-  }
+  try { await fetch(backend, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify({ action:"confirmation", name, phone: wa }) }); alert(`Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code.`); }
+  catch (err){ alert("Network error: "+err); }
 }
 
-// Continue test
 async function continueTest() {
   const code = document.getElementById("unlock").value.trim();
   if(!code){ alert("Please enter the unlock code."); return; }
-
-  try {
+  try{
     const res = await fetch(backend+"?check="+encodeURIComponent(code));
     const data = await res.json();
     if(data.ok){
-      // Hide front page
       document.getElementById("landingPage").style.display="none";
-      // Show original quiz
       document.getElementById("quizBox").style.display="block";
       startQuiz(code);
     } else alert("Invalid or expired unlock code.");
-  } catch(e){
-    alert("Network error: " + e);
-  }
+  } catch(e){ alert("Network error: "+e); }
 }
 
 // Quiz
@@ -224,6 +229,13 @@ function loadQuestion(){
   document.getElementById("optB").innerText = "B. "+current.options[1];
   document.getElementById("optC").innerText = "C. "+current.options[2];
   document.getElementById("optD").innerText = "D. "+current.options[3];
+
+  // Reset buttons
+  ["optA","optB","optC","optD"].forEach(id=>{ 
+    const btn = document.getElementById(id); 
+    btn.classList.remove("correct","incorrect");
+  });
+
   document.getElementById("msg").innerText="";
 }
 
@@ -231,6 +243,15 @@ function checkAnswer(selected){
   const current = questions[currentIndex];
   const audioCorrect = document.getElementById("audioCorrect");
   const audioWrong = document.getElementById("audioWrong");
+
+  ["optA","optB","optC","optD"].forEach(id=>{
+    const btn = document.getElementById(id);
+    if(btn.innerText.startsWith(current.correct)){
+      btn.classList.add("correct");
+    } else if(id[3]===selected){
+      btn.classList.add("incorrect");
+    }
+  });
 
   if(selected===current.correct){
     correctCount++;
@@ -243,8 +264,8 @@ function checkAnswer(selected){
   }
 
   currentIndex++;
-  if(currentIndex<questions.length){ setTimeout(loadQuestion,1200); }
-  else{ setTimeout(showScore,1200); }
+  if(currentIndex<questions.length){ setTimeout(loadQuestion,1500); }
+  else{ setTimeout(showScore,1500); }
 }
 
 function showScore(){
@@ -257,6 +278,5 @@ function showScore(){
     <p>Status: ${status}</p>`;
 }
 </script>
-
 </body>
 </html>
