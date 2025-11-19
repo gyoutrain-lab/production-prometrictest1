@@ -14,7 +14,7 @@
     background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
   }
 
-  /* Flowing background behind form/QR */
+  /* Flowing background image behind form/QR */
   .flowing-bg {
     position: relative;
     width:100%;
@@ -36,24 +36,22 @@
   /* Title and subtitle always front */
   .title-container {
     position: relative;
-    margin-top:-45vh; /* place above flowing background */
+    margin-top:-45vh; /* on top of flowing background */
     text-align:center;
     color:#042d62;
     z-index:2;
   }
   .title-container h1 { font-size:28px; margin:0; }
   .title-container h3 { font-size:18px; margin:5px 0; }
-
   .social-icons img { width:32px; margin:0 6px; cursor:pointer; }
 
   /* Form container left below flowing background */
   .form-container {
     position: relative;
-    max-width:350px;
+    max-width:150px;  /* smaller width like QR */
     margin:0;
-    margin-left:2%; /* left corner */
-    margin-top:-10px; 
-    padding:20px;
+    margin-top:-10px; /* adjust spacing below flowing image */
+    padding:15px;
     background:white;
     border-radius:12px;
     box-shadow:0 0 15px rgba(0,0,0,0.1);
@@ -63,20 +61,20 @@
   }
 
   .form-container label { font-weight:bold; display:block; margin-top:10px; }
-  .form-container input { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:16px; }
+  .form-container input { width:100%; padding:8px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:14px; }
 
-  .form-container button { width:100%; margin-top:10px; padding:12px; font-size:16px; border:none; border-radius:6px; cursor:pointer; }
+  .form-container button { width:100%; margin-top:10px; padding:10px; font-size:14px; border:none; border-radius:6px; cursor:pointer; }
+
   .demo-btn { background:gold; color:#000; }
   .confirm-btn { background:#0056b3; color:#fff; }
   .continue-btn { background:green; color:#fff; }
 
-  /* QR code right corner below flowing background */
+  /* QR code right below flowing image */
   .qr {
     position: relative;
     float:right;
-    width:20%;
-    margin-top:-10px;
-    margin-right:2%;
+    width:150px; /* similar to form container */
+    margin-top:-10px; /* align with container */
     z-index:1;
   }
 
@@ -163,33 +161,41 @@ function demoTest(){
   window.open("https://script.google.com/macros/s/AKfycbzXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec", "_blank");
 }
 
-function confirmation(){
+// Confirmation (fixed network)
+async function confirmation() {
   const name = document.getElementById("name").value.trim();
   const wa = document.getElementById("wa").value.trim();
-  if(!name || !wa){ alert("Please fill in Name and WhatsApp number."); return; }
+  if (!name || !wa) { alert("Please fill in Name and WhatsApp number."); return; }
 
-  fetch(backend, {
-    method:"POST",
-    body: JSON.stringify({ action:"confirmation", name:name, phone:wa }),
-    headers: { "Content-Type":"application/json" }
-  }).then(r=>r.json())
-    .then(d=>alert(d.reply || "Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code."))
-    .catch(e=>alert("Network error: "+e));
+  try {
+    await fetch(backend, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "confirmation", name, phone: wa })
+    });
+    alert(`Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code.`);
+  } catch (err) {
+    alert("Network error: " + err);
+  }
 }
 
-function continueTest(){
+// Continue test
+async function continueTest() {
   const code = document.getElementById("unlock").value.trim();
   if(!code){ alert("Please enter the unlock code."); return; }
 
-  fetch(backend+"?check="+encodeURIComponent(code))
-    .then(r=>r.json())
-    .then(d=>{
-      if(d.ok){
-        document.getElementById("landingForm").style.display="none";
-        document.getElementById("quizBox").style.display="block";
-        startQuiz(code);
-      } else alert("Invalid or expired unlock code.");
-    }).catch(e=>alert("Network error: "+e));
+  try {
+    const res = await fetch(backend+"?check="+encodeURIComponent(code));
+    const data = await res.json();
+    if(data.ok){
+      document.getElementById("landingForm").style.display="none";
+      document.getElementById("quizBox").style.display="block";
+      startQuiz(code);
+    } else alert("Invalid or expired unlock code.");
+  } catch(e){
+    alert("Network error: " + e);
+  }
 }
 
 // Quiz
@@ -243,5 +249,6 @@ function showScore(){
     <p>Status: ${status}</p>`;
 }
 </script>
+
 </body>
 </html>
