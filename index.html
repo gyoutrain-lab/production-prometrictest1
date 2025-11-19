@@ -14,7 +14,7 @@
     background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
   }
 
-  /* Flowing background image behind form/QR */
+  /* Flowing background behind form/QR */
   .flowing-bg {
     position: relative;
     width:100%;
@@ -36,7 +36,7 @@
   /* Title and subtitle always front */
   .title-container {
     position: relative;
-    margin-top:-45vh; /* Move above the flowing background */
+    margin-top:-45vh; /* place above flowing background */
     text-align:center;
     color:#042d62;
     z-index:2;
@@ -50,8 +50,9 @@
   .form-container {
     position: relative;
     max-width:350px;
-    margin:0 auto;
-    margin-top:-10px; /* adjust spacing below flowing image */
+    margin:0;
+    margin-left:2%; /* left corner */
+    margin-top:-10px; 
     padding:20px;
     background:white;
     border-radius:12px;
@@ -65,17 +66,17 @@
   .form-container input { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:16px; }
 
   .form-container button { width:100%; margin-top:10px; padding:12px; font-size:16px; border:none; border-radius:6px; cursor:pointer; }
-
   .demo-btn { background:gold; color:#000; }
   .confirm-btn { background:#0056b3; color:#fff; }
   .continue-btn { background:green; color:#fff; }
 
-  /* QR code right below flowing image */
+  /* QR code right corner below flowing background */
   .qr {
     position: relative;
     float:right;
     width:20%;
-    margin-top:-10px; /* adjust spacing */
+    margin-top:-10px;
+    margin-right:2%;
     z-index:1;
   }
 
@@ -89,6 +90,7 @@
     box-shadow:0 0 15px rgba(0,0,0,0.15);
     display:none;
     text-align:center;
+    clear:both;
   }
   .question { font-size:20px; margin:20px 0; }
   .options button { width:100%; padding:14px; margin:8px 0; font-size:18px; border-radius:6px; border:1px solid #bbb; cursor:pointer; }
@@ -154,7 +156,7 @@
 <audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
 
 <script>
-const backend = "https://script.google.com/macros/s/AKfycbyHtvmulVoW2r2DvJzPcCEtUpjBbwphDHrjw-9yO_LebrhdANdag3yYBygTWVKmbjNE/exec";
+const backend = "https://script.google.com/macros/s/AKfycbyyZ09UJdmwjvPrMVqjEPZmkXa40cyfC-kH4KDhoDTx1vdmhhX5BV1UDi8rjZbGhcDQ/exec";
 
 // Landing buttons
 function demoTest(){
@@ -171,7 +173,7 @@ function confirmation(){
     body: JSON.stringify({ action:"confirmation", name:name, phone:wa }),
     headers: { "Content-Type":"application/json" }
   }).then(r=>r.json())
-    .then(d=>alert(d.reply || "Confirmation sent! Wait for Admin to approve and send unlock code via WA."))
+    .then(d=>alert(d.reply || "Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code."))
     .catch(e=>alert("Network error: "+e));
 }
 
@@ -190,7 +192,7 @@ function continueTest(){
     }).catch(e=>alert("Network error: "+e));
 }
 
-// Quiz (same as before)
+// Quiz
 let questions = [];
 let currentIndex = 0, correctCount = 0, incorrectCount = 0;
 
@@ -241,6 +243,5 @@ function showScore(){
     <p>Status: ${status}</p>`;
 }
 </script>
-
 </body>
 </html>
