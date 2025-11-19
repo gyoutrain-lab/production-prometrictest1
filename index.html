@@ -5,75 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nursing Prometric Actual Simulation Test</title>
 <style>
-body { margin:0; font-family: Arial,sans-serif; background:#f7f9fc; text-align:center; overflow-x:hidden; }
+  body { margin:0; font-family: Arial, sans-serif; background:#f7f9fc; text-align:center; overflow-x:hidden; }
 
-/* Top hero image */
-.top-image { width:100%; height:50vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') no-repeat center/cover; }
+  /* Top static image */
+  .top-image {
+    width:100%;
+    height:50vh;
+    background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
+  }
 
-/* Title & subtitle above everything, fully visible */
-.title-container {
-  position: relative; z-index: 10; margin-top: 20px;
-  color:#042d62; text-align:center;
-}
-.title-container h1 { font-size:28px; margin:0; }
-.title-container h3 { font-size:18px; margin:5px 0; }
-.social-icons img { width:32px; margin:0 6px; cursor:pointer; }
+  /* Flowing background image behind form/QR */
+  .flowing-bg {
+    position: relative;
+    width:100%;
+    height:50vh;
+    background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom;
+    opacity:0.15;
+    filter: blur(2px);
+    background-size: cover;
+    animation: flowWave 30s linear infinite;
+    z-index:0;
+  }
 
-/* Bottom flowing image as BACKGROUND */
-.bottom-background {
-  position: relative;
-  width:100%;
-  min-height:50vh;
-  background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom;
-  opacity:0.2;
-  filter: blur(2px);
-  animation: flow 10s linear infinite;
-}
+  @keyframes flowWave {
+    0% { background-position: 0 bottom; }
+    50% { background-position: 500px bottom; }
+    100% { background-position: 0 bottom; }
+  }
 
-/* Flowing animation */
-@keyframes flow {
-  0% { background-position-x: 0; }
-  100% { background-position-x: 1000px; }
-}
+  /* Title and subtitle always front */
+  .title-container {
+    position: relative;
+    margin-top:-45vh; /* Move above the flowing background */
+    text-align:center;
+    color:#042d62;
+    z-index:2;
+  }
+  .title-container h1 { font-size:28px; margin:0; }
+  .title-container h3 { font-size:18px; margin:5px 0; }
 
-/* QR code at right bottom corner */
-.qr {
-  position:absolute;
-  right:20px;
-  bottom:20px;
-  width:20%;
-}
+  .social-icons img { width:32px; margin:0 6px; cursor:pointer; }
 
-/* Form container at left bottom corner */
-.form-container {
-  position:absolute;
-  left:20px;
-  bottom:20px;
-  width:40%;
-  padding:20px;
-  background: rgba(255,255,255,0.95);
-  border-radius:12px;
-  box-shadow:0 0 15px rgba(0,0,0,0.15);
-  text-align:left;
-}
-.form-container label { font-weight:bold; display:block; margin-top:10px; }
-.form-container input { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:16px; }
-.form-container button { width:100%; margin-top:15px; padding:12px; font-size:16px; border:none; border-radius:6px; cursor:pointer; }
-.form-container button:nth-child(4) { background:gold; color:black; } /* Demo Test */
-.form-container button:nth-child(5) { background:blue; } /* Confirmation */
-.form-container button:nth-child(6) { background:green; } /* Continue Next Test */
+  /* Form container left below flowing background */
+  .form-container {
+    position: relative;
+    max-width:350px;
+    margin:0 auto;
+    margin-top:-10px; /* adjust spacing below flowing image */
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+    text-align:left;
+    z-index:1;
+    float:left;
+  }
 
+  .form-container label { font-weight:bold; display:block; margin-top:10px; }
+  .form-container input { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:16px; }
+
+  .form-container button { width:100%; margin-top:10px; padding:12px; font-size:16px; border:none; border-radius:6px; cursor:pointer; }
+
+  .demo-btn { background:gold; color:#000; }
+  .confirm-btn { background:#0056b3; color:#fff; }
+  .continue-btn { background:green; color:#fff; }
+
+  /* QR code right below flowing image */
+  .qr {
+    position: relative;
+    float:right;
+    width:20%;
+    margin-top:-10px; /* adjust spacing */
+    z-index:1;
+  }
+
+  /* Quiz container (hidden initially) */
+  .quiz-container {
+    max-width:720px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+    display:none;
+    text-align:center;
+  }
+  .question { font-size:20px; margin:20px 0; }
+  .options button { width:100%; padding:14px; margin:8px 0; font-size:18px; border-radius:6px; border:1px solid #bbb; cursor:pointer; }
+  #msg { font-weight:bold; margin:15px 0; min-height:24px; }
+  #scorebox { margin-top:30px; font-size:18px; clear:both; }
 </style>
 </head>
 <body>
 
-<!-- Top hero image -->
+<!-- Top static image -->
 <div class="top-image"></div>
 
-<!-- Title & subtitle visible above all -->
+<!-- Flowing background -->
+<div class="flowing-bg"></div>
+
+<!-- Title and subtitle -->
 <div class="title-container">
   <h1>Nursing Prometric Actual Simulation Test</h1>
-  <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE and NCLEX</h3>
+  <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE & NCLEX</h3>
   <div class="social-icons">
     <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"></a>
     <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
@@ -83,31 +117,46 @@ body { margin:0; font-family: Arial,sans-serif; background:#f7f9fc; text-align:c
   </div>
 </div>
 
-<!-- Bottom flowing background -->
-<div class="bottom-background">
-  <!-- QR code -->
-  <img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
+<!-- Form container left -->
+<div class="form-container" id="landingForm">
+  <label for="name">Full Name</label>
+  <input type="text" id="name" placeholder="Enter your full name">
+  
+  <label for="wa">WhatsApp Number</label>
+  <input type="text" id="wa" placeholder="e.g. 6285399652487">
 
-  <!-- Form container on left -->
-  <div class="form-container" id="landingForm">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" placeholder="Enter your full name">
-    
-    <label for="wa">WhatsApp Number</label>
-    <input type="text" id="wa" placeholder="e.g. 6285399652487">
+  <label for="unlock">Unlock Code</label>
+  <input type="text" id="unlock" placeholder="Enter Unlock Code">
 
-    <label for="unlock">Unlock Code</label>
-    <input type="text" id="unlock" placeholder="Enter Unlock Code">
-
-    <button onclick="demoTest()">Demo Test (Free)</button>
-    <button onclick="confirmation()">Confirmation</button>
-    <button onclick="continueTest()">Continue Next Test</button>
-  </div>
+  <button class="demo-btn" onclick="demoTest()">Demo Test (Free)</button>
+  <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
+  <button class="continue-btn" onclick="continueTest()">Continue Next Test</button>
 </div>
+
+<!-- QR code right -->
+<img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
+
+<!-- Quiz container -->
+<div class="quiz-container" id="quizBox">
+  <div class="question" id="questionText"></div>
+  <div class="options">
+    <button class="option-btn" id="optA" onclick="checkAnswer('A')"></button>
+    <button class="option-btn" id="optB" onclick="checkAnswer('B')"></button>
+    <button class="option-btn" id="optC" onclick="checkAnswer('C')"></button>
+    <button class="option-btn" id="optD" onclick="checkAnswer('D')"></button>
+  </div>
+  <div id="msg"></div>
+  <div id="scorebox"></div>
+</div>
+
+<!-- Audio effects -->
+<audio id="audioCorrect" src="assets/correct.mp3" preload="auto"></audio>
+<audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
 
 <script>
 const backend = "https://script.google.com/macros/s/AKfycbyHtvmulVoW2r2DvJzPcCEtUpjBbwphDHrjw-9yO_LebrhdANdag3yYBygTWVKmbjNE/exec";
 
+// Landing buttons
 function demoTest(){
   window.open("https://script.google.com/macros/s/AKfycbzXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec", "_blank");
 }
@@ -120,7 +169,7 @@ function confirmation(){
   fetch(backend, {
     method:"POST",
     body: JSON.stringify({ action:"confirmation", name:name, phone:wa }),
-    headers:{ "Content-Type":"application/json" }
+    headers: { "Content-Type":"application/json" }
   }).then(r=>r.json())
     .then(d=>alert(d.reply || "Confirmation sent! Wait for Admin to approve and send unlock code via WA."))
     .catch(e=>alert("Network error: "+e));
@@ -130,16 +179,66 @@ function continueTest(){
   const code = document.getElementById("unlock").value.trim();
   if(!code){ alert("Please enter the unlock code."); return; }
 
-  fetch(backend+"?verify="+encodeURIComponent(code))
+  fetch(backend+"?check="+encodeURIComponent(code))
     .then(r=>r.json())
     .then(d=>{
       if(d.ok){
         document.getElementById("landingForm").style.display="none";
-        alert("Unlock code valid! Quiz will start.");
-      } else {
-        alert("Invalid or expired unlock code.");
-      }
+        document.getElementById("quizBox").style.display="block";
+        startQuiz(code);
+      } else alert("Invalid or expired unlock code.");
     }).catch(e=>alert("Network error: "+e));
+}
+
+// Quiz (same as before)
+let questions = [];
+let currentIndex = 0, correctCount = 0, incorrectCount = 0;
+
+function startQuiz(authCode){
+  fetch(backend+"?questions=true")
+    .then(r=>r.json())
+    .then(data=>{ questions=data; currentIndex=0; correctCount=0; incorrectCount=0; loadQuestion(); })
+    .catch(e=>alert("Failed to load questions: "+e));
+}
+
+function loadQuestion(){
+  const current = questions[currentIndex];
+  document.getElementById("questionText").innerText = `Q${current.number}: ${current.question}`;
+  document.getElementById("optA").innerText = "A. "+current.options[0];
+  document.getElementById("optB").innerText = "B. "+current.options[1];
+  document.getElementById("optC").innerText = "C. "+current.options[2];
+  document.getElementById("optD").innerText = "D. "+current.options[3];
+  document.getElementById("msg").innerText="";
+}
+
+function checkAnswer(selected){
+  const current = questions[currentIndex];
+  const audioCorrect = document.getElementById("audioCorrect");
+  const audioWrong = document.getElementById("audioWrong");
+
+  if(selected===current.correct){
+    correctCount++;
+    audioCorrect.currentTime=0; audioCorrect.play();
+    document.getElementById("msg").innerText="✅ Correct!";
+  } else {
+    incorrectCount++;
+    audioWrong.currentTime=0; audioWrong.play();
+    document.getElementById("msg").innerText=`❌ Wrong! Correct: ${current.correct}\n${current.rationale}`;
+  }
+
+  currentIndex++;
+  if(currentIndex<questions.length){ setTimeout(loadQuestion,1200); }
+  else{ setTimeout(showScore,1200); }
+}
+
+function showScore(){
+  const score=Math.round((correctCount/questions.length)*100);
+  const status=score>=70?"PASS":"NOT PASS";
+  document.getElementById("quizBox").innerHTML=`<h2>Test Completed</h2>
+    <p>Correct: ${correctCount} / ${questions.length}</p>
+    <p>Incorrect: ${incorrectCount} / ${questions.length}</p>
+    <p>Score: ${score}%</p>
+    <p>Status: ${status}</p>`;
 }
 </script>
 
