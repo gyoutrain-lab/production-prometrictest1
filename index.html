@@ -1,470 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Nursing Prometric Actual Simulation Test — Single Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nursing Prometric Actual Simulation Test</title>
 <style>
-  :root{
-    --blue-emboss: #bfe9ff;
-    --blue-border: #56b8ff;
-    --red-emboss: #ffd6d6;
-    --red-border: #ff6e6e;
+  body { margin:0; font-family: Arial, sans-serif; background:#f7f9fc; text-align:center; overflow-x:hidden; }
+
+  /* Front page */
+  #landingPage { width:100%; }
+
+  /* Top static image */
+  .top-image {
+    width:100%;
+    height:50vh;
+    background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
   }
 
-  body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#f7f9fc; color:#042d62; overflow-x:hidden; }
-
-  /* Top image + flowing bg (kept as you had) */
-  .top-image { width:100%; height:50vh; background:url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat; position:relative; z-index:3; }
-  .flowing-bg { position:relative; width:100%; height:50vh; background:url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom; opacity:0.12; filter: blur(2px); background-size:cover; animation:flowWave 30s linear infinite; z-index:0; }
-  @keyframes flowWave { 0%{background-position:0 bottom} 50%{background-position:500px bottom} 100%{background-position:0 bottom} }
-
-  /* Title/Sub */
-  .title-container{ position:relative; margin-top:-45vh; text-align:center; z-index:4; }
-  .title-container h1{ margin:0; font-size:26px; }
-  .title-container h3{ margin:6px 0 12px; font-size:15px; color:#2b3b4b; }
-
-  /* Landing layout: small left form and right QR */
-  .form-container{ position:relative; max-width:220px; margin:0; margin-top:-40vh; padding:16px; background:#fff; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.12); text-align:left; z-index:5; float:left; transform: translateY(18vh); }
-  .form-container label{ font-weight:700; font-size:13px; margin-top:8px; display:block; }
-  .form-container input{ width:100%; padding:8px; margin-top:6px; border-radius:6px; border:1px solid #cfcfcf; font-size:14px; box-sizing:border-box; }
-  .form-container button{ width:100%; padding:10px; margin-top:10px; border-radius:8px; border:none; cursor:pointer; font-weight:700; }
-
-  .demo-btn{ background:gold; color:#000; }
-  .confirm-btn{ background:#0056b3; color:#fff; }
-  .continue-btn{ background:green; color:#fff; }
-
-  .qr { position:relative; float:right; width:320px; margin-top:-40vh; transform: translateY(18vh); z-index:5; }
-
-  /* QUIZ area (hidden initially) */
-  .quiz-container{ max-width:900px; margin:50px auto; display:none; text-align:center; padding:28px; background:#fff; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.12); z-index:6; clear:both; }
-
-  /* QUESTION container (smaller) */
-  .question-container{
+  /* Flowing background image */
+  .flowing-bg {
+    position: relative;
     width:100%;
-    min-height:80px;          /* smaller than options area */
-    padding:18px;
-    margin-bottom:18px;
+    height:50vh;
+    background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom;
+    opacity:0.15;
+    filter: blur(2px);
+    background-size: cover;
+    animation: flowWave 30s linear infinite;
+    z-index:0;
+  }
+
+  @keyframes flowWave {
+    0% { background-position: 0 bottom; }
+    50% { background-position: 500px bottom; }
+    100% { background-position: 0 bottom; }
+  }
+
+  /* Title and subtitle */
+  .title-container {
+    position: relative;
+    margin-top:-45vh;
+    text-align:center;
+    color:#042d62;
+    z-index:2;
+  }
+  .title-container h1 { font-size:28px; margin:0; }
+  .title-container h3 { font-size:18px; margin:5px 0; }
+  .social-icons img { width:32px; margin:0 6px; cursor:pointer; }
+
+  /* Form container left */
+  .form-container {
+    position: relative;
+    max-width:150px;
+    margin:0;
+    margin-top:-10px;
+    padding:15px;
+    background:white;
     border-radius:12px;
-    background: linear-gradient(180deg,#ffffff,#f5fbff);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+    text-align:left;
+    z-index:1;
+    float:left;
+  }
+  .form-container label { font-weight:bold; display:block; margin-top:10px; }
+  .form-container input { width:100%; padding:8px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:14px; }
+  .form-container button { width:100%; margin-top:10px; padding:10px; font-size:14px; border:none; border-radius:6px; cursor:pointer; }
+  .demo-btn { background:gold; color:#000; }
+  .confirm-btn { background:#0056b3; color:#fff; }
+  .continue-btn { background:green; color:#fff; }
+
+  /* QR code right below flowing image */
+  .qr {
+    position: relative;
+    float:right;
+    width:150px;
+    margin-top:-10px;
+    z-index:1;
+  }
+
+  /* QUIZ PAGE */
+  .quiz-container {
+    max-width:720px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+    display:none;
+    text-align:center;
+    clear:both;
+  }
+
+  /* Question container */
+  .question-container {
+    background:#e0f0ff;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    font-size:1.8em; /* 3x bigger */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-height:100px;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
-    font-size:2.0rem;         /* large question font (≈3× effect) */
-    font-weight:700;
-    color:#042d62;
   }
 
-  /* OPTIONS container (larger) */
-  .options-container{
-    width:100%;
-    padding:18px;
+  /* Options container */
+  .options-container {
+    background:white;
+    padding:20px;
     border-radius:12px;
-    background:#ffffff;
-    box-shadow:0 6px 18px rgba(0,0,0,0.04);
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
   }
 
-  .optionBtn{
+  .options-container button {
     width:100%;
-    display:block;
-    text-align:left;
-    padding:18px;
-    margin:10px 0;
-    font-size:1.25rem;        /* larger options text */
-    border-radius:10px;
-    border:1px solid #ddd;
-    background:#fff;
+    padding:14px;
+    margin:8px 0;
+    font-size:18px;
+    border-radius:6px;
+    border:1px solid #bbb;
     cursor:pointer;
-    transition: all .28s ease;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.04);
-  }
-  .optionBtn:disabled{ opacity:0.8; cursor:default; }
-
-  /* Correct styling */
-  .optionBtn.correct{
-    background: linear-gradient(90deg,var(--blue-emboss),#b3e7ff);
-    border: 3px solid var(--blue-border);
-    color:#043a5e;
-    box-shadow: 0 0 20px rgba(86,184,255,0.45);
-    transform: translateY(-2px);
+    transition: all 0.3s;
   }
 
-  /* Incorrect styling */
-  .optionBtn.incorrect{
-    background: linear-gradient(90deg,var(--red-emboss),#ffbcbc);
-    border: 3px solid var(--red-border);
-    color:#6b0000;
-    box-shadow: 0 0 16px rgba(255,110,110,0.35);
-    transform: translateY(-2px);
+  .options-container button.correct {
+    background: linear-gradient(to right, #b3e5fc, #81d4fa);
+    color:#042d62;
+    text-shadow: 1px 1px 2px #fff;
+    box-shadow: 0 0 10px #81d4fa;
   }
 
-  /* ripple animation applied briefly */
-  .rippleEffect{ animation: ripple 0.55s ease-out forwards; }
-  @keyframes ripple { 0% { transform: scale(0.98); opacity:1 } 100% { transform: scale(1.03); opacity:0.98 } }
-
-  /* countdown */
-  #nextCountdown { font-size:1.6rem; font-weight:700; margin-top:10px; color:#333; }
-
-  /* score display after finished */
-  #scorebox { margin-top: 20px; font-size:1.1rem; }
-
-  /* Confetti canvas (absolute overlay) */
-  #confettiCanvas{ position:fixed; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:9999; display:none; }
-
-  /* Responsive tweaks */
-  @media (max-width:900px){
-    .form-container{ transform:translateY(12vh); max-width:46%; }
-    .qr{ width:220px; transform:translateY(12vh); }
-    .question-container{ font-size:1.6rem; }
-    .optionBtn{ font-size:1.05rem; padding:14px; }
+  .options-container button.incorrect {
+    background: linear-gradient(to right, #ffcdd2, #ef9a9a);
+    color:#610000;
+    text-shadow: 1px 1px 2px #fff;
+    box-shadow: 0 0 10px #ef9a9a;
   }
-  @media (max-width:600px){
-    .form-container, .qr { float:none; margin:12px auto; transform:translateY(6vh); display:block; }
-    .form-container{ max-width:85%; }
-    .qr{ width:200px; margin-bottom:8px; }
-    .question-container{ font-size:1.4rem; min-height:72px; }
-    .optionBtn{ font-size:1rem; padding:12px; }
-  }
+
+  #msg { font-weight:bold; margin:15px 0; min-height:24px; }
+  #scorebox { margin-top:30px; font-size:18px; clear:both; }
 </style>
 </head>
 <body>
 
-<!-- Landing (front) -->
+<!-- FRONT PAGE -->
 <div id="landingPage">
   <div class="top-image"></div>
   <div class="flowing-bg"></div>
-
   <div class="title-container">
     <h1>Nursing Prometric Actual Simulation Test</h1>
     <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE & NCLEX</h3>
   </div>
-<!-- Title and subtitle -->
-  <div class="title-container">
-    <h1>Nursing Prometric Actual Simulation Test</h1>
-    <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE & NCLEX</h3>
-    </div>
+
   <div class="form-container" id="landingForm">
     <label for="name">Full Name</label>
-    <input id="name" placeholder="Enter your full name" />
+    <input type="text" id="name" placeholder="Enter your full name">
     <label for="wa">WhatsApp Number</label>
-    <input id="wa" placeholder="e.g. 6285399652487" />
+    <input type="text" id="wa" placeholder="e.g. 6285399652487">
     <label for="unlock">Unlock Code</label>
-    <input id="unlock" placeholder="Enter Unlock Code" />
+    <input type="text" id="unlock" placeholder="Enter Unlock Code">
     <button class="demo-btn" onclick="demoTest()">Demo Test (Free)</button>
     <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
     <button class="continue-btn" onclick="continueTest()">Continue Next Test</button>
   </div>
-
-  <img class="qr" src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" alt="Dana QR">
+  <img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
 </div>
 
-<!-- Quiz (hidden initially) -->
-<div class="quiz-container" id="quizBox" aria-live="polite">
-  <div class="question-container" id="questionText">Question will appear here</div>
-
-  <div class="options-container">
-    <div id="optionsList"></div>
-    <div id="nextCountdown" style="display:none"></div>
+<!-- QUIZ PAGE -->
+<div class="quiz-container" id="quizBox">
+  <div class="question-container" id="questionText"></div>
+  <div class="options-container" id="optionsBox">
+    <button class="option-btn" id="optA" onclick="checkAnswer('A')"></button>
+    <button class="option-btn" id="optB" onclick="checkAnswer('B')"></button>
+    <button class="option-btn" id="optC" onclick="checkAnswer('C')"></button>
+    <button class="option-btn" id="optD" onclick="checkAnswer('D')"></button>
   </div>
-
-  <div id="msg" style="min-height:28px; margin-top:14px;"></div>
+  <div id="msg"></div>
   <div id="scorebox"></div>
 </div>
 
-<!-- Confetti canvas -->
-<canvas id="confettiCanvas"></canvas>
-
-<!-- Audio files -->
-<!-- Replace these paths with your hosted mp3s if needed -->
-<audio id="audioCorrect" src="https://cdn.jsdelivr.net/gh/anars/blank-audio/blank.ogg"></audio>
-<audio id="audioWrong" src="https://cdn.jsdelivr.net/gh/anars/blank-audio/blank.ogg"></audio>
+<!-- Audio -->
+<audio id="audioCorrect" src="assets/inspiring_correct.mp3" preload="auto"></audio>
+<audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
 
 <script>
-/* ============================
-   CONFIG
-   ============================ */
 const backend = "https://script.google.com/macros/s/AKfycbyyZ09UJdmwjvPrMVqjEPZmkXa40cyfC-kH4KDhoDTx1vdmhhX5BV1UDi8rjZbGhcDQ/exec";
 
-// NOTE: I set blank audio URLs as placeholders. Replace with actual URLs or local files:
-// e.g. document.getElementById('audioCorrect').src = 'assets/inspiring_correct.mp3';
+function demoTest(){ window.open("https://script.google.com/macros/s/AKfycbzXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec", "_blank"); }
 
-/* ============================
-   UTILS: Confetti (lightweight) 
-   ============================ */
-const confettiCanvas = document.getElementById('confettiCanvas');
-const confettiCtx = confettiCanvas.getContext('2d');
-let confettiPieces = [];
-
-function resizeCanvas() {
-  confettiCanvas.width = window.innerWidth;
-  confettiCanvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-function spawnConfetti() {
-  confettiPieces = [];
-  const count = 60;
-  for (let i=0;i<count;i++){
-    confettiPieces.push({
-      x: Math.random()*confettiCanvas.width,
-      y: -Math.random()*200,
-      r: 6 + Math.random()*8,
-      d: (2 + Math.random()*4),
-      color: `hsl(${Math.random()*360},80%,60%)`,
-      tilt: Math.random()*10
-    });
-  }
-  confettiCanvas.style.display='block';
-  requestAnimationFrame(animConfetti);
-  setTimeout(()=>{ confettiCanvas.style.display='none'; confettiPieces=[]; },1200);
-}
-function animConfetti(){
-  confettiCtx.clearRect(0,0,confettiCanvas.width, confettiCanvas.height);
-  confettiPieces.forEach(p=>{
-    p.y += p.d;
-    p.x += Math.sin(p.y*0.01)*2;
-    p.tilt += 0.1;
-    confettiCtx.fillStyle = p.color;
-    confettiCtx.beginPath();
-    confettiCtx.ellipse(p.x, p.y, p.r, p.r*0.6, p.tilt, 0, Math.PI*2);
-    confettiCtx.fill();
-  });
-  if(confettiPieces.length) requestAnimationFrame(animConfetti);
+async function confirmation() {
+  const name = document.getElementById("name").value.trim();
+  const wa = document.getElementById("wa").value.trim();
+  if (!name || !wa) { alert("Please fill in Name and WhatsApp number."); return; }
+  try { await fetch(backend, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify({ action:"confirmation", name, phone: wa }) }); alert(`Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code.`); }
+  catch (err){ alert("Network error: "+err); }
 }
 
-/* ============================
-   SPEECH (choose American female if available)
-   ============================ */
-let chosenVoice = null;
-function chooseVoice() {
-  const voices = window.speechSynthesis.getVoices();
-  if(!voices || voices.length===0) return;
-  // Prefer common American female names, fallback: any en-US female
-  const preferred = ['Samantha','Allison','Joanna','Nicole','Samantha (Enhanced)','Microsoft Zira','Google US English','Karen','Emily'];
-  chosenVoice = voices.find(v => preferred.some(name => v.name.includes(name))) 
-                || voices.find(v => v.lang && v.lang.startsWith('en-US') && /female|woman|FEMALE/i.test(v.name)) 
-                || voices.find(v => v.lang && v.lang.startsWith('en-US')) 
-                || voices[0];
+async function continueTest() {
+  const code = document.getElementById("unlock").value.trim();
+  if(!code){ alert("Please enter the unlock code."); return; }
+  try{
+    const res = await fetch(backend+"?check="+encodeURIComponent(code));
+    const data = await res.json();
+    if(data.ok){
+      document.getElementById("landingPage").style.display="none";
+      document.getElementById("quizBox").style.display="block";
+      startQuiz(code);
+    } else alert("Invalid or expired unlock code.");
+  } catch(e){ alert("Network error: "+e); }
 }
-window.speechSynthesis.onvoiceschanged = chooseVoice;
-chooseVoice();
 
-/* ============================
-   QUIZ STATE
-   ============================ */
+// Quiz
 let questions = [];
-let currentIndex = 0;
-let correctCount = 0;
-let incorrectCount = 0;
+let currentIndex = 0, correctCount = 0, incorrectCount = 0;
 
-/* Load questions from backend */
 function startQuiz(authCode){
-  // show loader briefly (optional)
-  fetch(backend + "?questions=true")
-    .then(r => r.json())
-    .then(data => {
-      questions = data;
-      currentIndex = 0;
-      correctCount = 0;
-      incorrectCount = 0;
-      loadQuestion();
-    })
-    .catch(e => { alert("Failed to load questions: " + e); });
+  fetch(backend+"?questions=true")
+    .then(r=>r.json())
+    .then(data=>{ questions=data; currentIndex=0; correctCount=0; incorrectCount=0; loadQuestion(); })
+    .catch(e=>alert("Failed to load questions: "+e));
 }
 
-/* Prepare & display a question */
 function loadQuestion(){
-  const q = questions[currentIndex];
-  if(!q){ showScore(); return; }
+  const current = questions[currentIndex];
+  document.getElementById("questionText").innerText = `Q${current.number}: ${current.question}`;
+  document.getElementById("optA").innerText = "A. "+current.options[0];
+  document.getElementById("optB").innerText = "B. "+current.options[1];
+  document.getElementById("optC").innerText = "C. "+current.options[2];
+  document.getElementById("optD").innerText = "D. "+current.options[3];
 
-  // question text adaptive
-  const qText = `Q${q.number}: ${q.question}`;
-  document.getElementById('questionText').innerText = qText;
-
-  // text-to-speech
-  try {
-    speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(q.question);
-    if(chosenVoice) utter.voice = chosenVoice;
-    utter.lang = 'en-US';
-    utter.rate = 1.0;
-    window.speechSynthesis.speak(utter);
-  } catch(e){ /* ignore speech errors */ }
-
-  // Build options with correct flag using original correct letter
-  const letters = ['A','B','C','D'];
-  const opts = q.options.map((text, idx)=>({
-    id: letters[idx],
-    text: text || '',
-    correct: (letters[idx] === (q.correct||'').toUpperCase())
-  }));
-
-  // Shuffle options
-  for(let i=opts.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [opts[i], opts[j]] = [opts[j], opts[i]];
-  }
-
-  // Render option buttons
-  const list = document.getElementById('optionsList');
-  list.innerHTML = '';
-  opts.forEach(opt => {
-    const btn = document.createElement('button');
-    btn.className = 'optionBtn';
-    btn.type = 'button';
-    btn.innerText = `${opt.id}. ${opt.text}`;
-    btn.onclick = () => onSelectOption(opt, btn);
-    list.appendChild(btn);
+  // Reset buttons
+  ["optA","optB","optC","optD"].forEach(id=>{ 
+    const btn = document.getElementById(id); 
+    btn.classList.remove("correct","incorrect");
   });
 
-  // Reset msg, countdown
-  document.getElementById('msg').innerText = '';
-  const cdEl = document.getElementById('nextCountdown');
-  cdEl.style.display = 'none';
+  document.getElementById("msg").innerText="";
 }
 
-/* When user selects an option */
-function onSelectOption(optionObj, btn){
-  // disable all buttons
-  document.querySelectorAll('.optionBtn').forEach(b=> b.disabled = true);
+function checkAnswer(selected){
+  const current = questions[currentIndex];
+  const audioCorrect = document.getElementById("audioCorrect");
+  const audioWrong = document.getElementById("audioWrong");
 
-  // find and mark the correct button visually
-  document.querySelectorAll('.optionBtn').forEach(b=>{
-    if(b.innerText.trim().startsWith(optionObj.id + '.')) {
-      // this is the clicked btn (may be correct or not)
+  ["optA","optB","optC","optD"].forEach(id=>{
+    const btn = document.getElementById(id);
+    if(btn.innerText.startsWith(current.correct)){
+      btn.classList.add("correct");
+    } else if(id[3]===selected){
+      btn.classList.add("incorrect");
     }
   });
 
-  if(optionObj.correct){
-    // correct path
-    btn.classList.add('correct','rippleEffect');
-    try { document.getElementById('audioCorrect').play(); } catch(e){}
-    // visual confetti
-    spawnConfetti();
+  if(selected===current.correct){
     correctCount++;
+    audioCorrect.currentTime=0; audioCorrect.play();
+    document.getElementById("msg").innerText="✅ Correct!";
   } else {
-    // mark clicked as incorrect
-    btn.classList.add('incorrect','rippleEffect');
-    try { document.getElementById('audioWrong').play(); } catch(e){}
-    // also highlight the correct one
-    const nodes = Array.from(document.querySelectorAll('.optionBtn'));
-    nodes.forEach(b=>{
-      if(b.innerText.trim().startsWith(getCorrectLetterForCurrent() + '.')) {
-        b.classList.add('correct');
-      }
-    });
     incorrectCount++;
+    audioWrong.currentTime=0; audioWrong.play();
+    document.getElementById("msg").innerText=`❌ Wrong! Correct: ${current.correct}\n${current.rationale}`;
   }
 
-  // countdown then next question
-  startCountdownThenNext();
+  currentIndex++;
+  if(currentIndex<questions.length){ setTimeout(loadQuestion,1500); }
+  else{ setTimeout(showScore,1500); }
 }
 
-/* helper to find correct letter in current question (original mapping) */
-function getCorrectLetterForCurrent(){
-  const q = questions[currentIndex];
-  return (q.correct || '').toUpperCase();
-}
-
-/* 3s countdown, then move to next question */
-function startCountdownThenNext(){
-  const cdEl = document.getElementById('nextCountdown');
-  let cd = 3;
-  cdEl.style.display = 'block';
-  cdEl.innerText = `Next question in ${cd}...`;
-  const t = setInterval(()=>{
-    cd--;
-    if(cd<=0){
-      clearInterval(t);
-      cdEl.style.display = 'none';
-      // next index
-      currentIndex++;
-      if(currentIndex < questions.length) loadQuestion();
-      else showScore();
-    } else {
-      cdEl.innerText = `Next question in ${cd}...`;
-    }
-  }, 1000);
-}
-
-/* Show final score */
 function showScore(){
-  const total = questions.length || 1;
-  const score = Math.round((correctCount / total) * 100);
-  const status = score >= 70 ? "PASS" : "NOT PASS";
-  document.getElementById('quizBox').innerHTML = `<h2>Test Completed</h2>
-    <p>Correct: ${correctCount} / ${total}</p>
-    <p>Incorrect: ${incorrectCount} / ${total}</p>
+  const score=Math.round((correctCount/questions.length)*100);
+  const status=score>=70?"PASS":"NOT PASS";
+  document.getElementById("quizBox").innerHTML=`<h2>Test Completed</h2>
+    <p>Correct: ${correctCount} / ${questions.length}</p>
+    <p>Incorrect: ${incorrectCount} / ${questions.length}</p>
     <p>Score: ${score}%</p>
     <p>Status: ${status}</p>`;
 }
-
-/* ============================
-   Landing / Confirmation / Continue
-   ============================ */
-function demoTest(){ window.open("https://script.google.com/macros/s/AKfycbzXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec","_blank"); }
-
-async function confirmation(){
-  const name = (document.getElementById('name').value||'').trim();
-  const wa = (document.getElementById('wa').value||'').trim();
-  if(!name || !wa){ alert("Please fill Name and WhatsApp number."); return; }
-
-  // Fire-and-forget POST. Using no-cors earlier worked; here we attempt normal fetch and fallback.
-  try {
-    await fetch(backend, {
-      method:'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ action:'confirmation', name, phone: wa }),
-    });
-    // Backend will generate code and write to sheet.
-    alert(`Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code.\nName: ${name}\nWA: ${wa}`);
-  } catch (err) {
-    // fallback no-cors mode for environments with CORS problems
-    try {
-      await fetch(backend, {
-        method:'POST',
-        mode:'no-cors',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ action:'confirmation', name, phone: wa }),
-      });
-      alert(`Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code.\nName: ${name}\nWA: ${wa}`);
-    } catch(e){
-      alert("Network error: " + e);
-    }
-  }
-}
-
-async function continueTest(){
-  const code = (document.getElementById('unlock').value||'').trim();
-  if(!code){ alert("Please enter the unlock code."); return; }
-  try {
-    const res = await fetch(backend + "?check=" + encodeURIComponent(code));
-    const data = await res.json();
-    if(data.ok){
-      // hide landing and show quiz in-place
-      document.getElementById('landingPage').style.display = 'none';
-      document.getElementById('quizBox').style.display = 'block';
-      // start quiz
-      startQuiz(code);
-    } else {
-      alert("Invalid or used unlock code.");
-    }
-  } catch(e){
-    alert("Network error: " + e);
-  }
-}
-
-/* ============================
-   Setup sample audio (replace with your inspiring mp3)
-   ============================ */
-/* Example: set real mp3 URLs if you host them
-document.getElementById('audioCorrect').src = 'https://example.com/inspiring_correct.mp3';
-document.getElementById('audioWrong').src   = 'https://example.com/wrong_beep.mp3';
-*/
-
 </script>
 </body>
 </html>
