@@ -1,177 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nursing Prometric Actual Simulation Test</title>
-<style>
-body { margin:0; font-family: Arial, sans-serif; background:#f7f9fc; text-align:center; }
-.top-image { width:100%; height:50vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') no-repeat center/cover; }
-.bottom-water { width:100%; height:50vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') no-repeat center/cover; opacity:0.3; filter: blur(3px); }
-.title-container { position:absolute; top:55%; left:50%; transform:translateX(-50%); text-align:center; color:#042d62; }
-.title-container h1 { font-size:28px; margin:0; }
-.title-container h3 { font-size:18px; margin:5px 0; }
-.social-icons img { width:32px; margin:0 6px; cursor:pointer; }
-.form-container { max-width:400px; margin:20px auto; padding:20px; background:white; border-radius:12px; box-shadow:0 0 15px rgba(0,0,0,0.1); text-align:left; }
-.form-container label { font-weight:bold; display:block; margin-top:10px; }
-.form-container input { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:16px; }
-.form-container button { width:100%; margin-top:15px; padding:12px; font-size:16px; border:none; border-radius:6px; background:#042d62; color:white; cursor:pointer; }
-.form-container button + button { margin-top:10px; background:#0056b3; }
-.quiz-container { max-width:720px; margin:50px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 0 15px rgba(0,0,0,0.15); display:none; text-align:center; }
-.question { font-size: 20px; margin: 20px 0; }
-.options button { width: 100%; padding:14px; margin:8px 0; font-size:18px; border-radius:6px; border:1px solid #bbb; cursor:pointer; }
-#msg { font-weight:bold; margin:15px 0; min-height:24px; }
-#scorebox { margin-top: 30px; font-size:18px; }
-</style>
+  <meta charset="UTF-8">
+  <title>Nursing Prometric Actual Simulation Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin:0; font-family: Arial,sans-serif; background:#e7ebf1; text-align:center; 
+    }
+    .hero {
+      position: relative; width:100%; height:50vh;
+      background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
+    }
+    .hero::after {
+      content:""; position:absolute; bottom:0; left:0; width:100%; height:50%; 
+      background: linear-gradient(to top, rgba(231,235,241,0.9), rgba(231,235,241,0));
+    }
+    .container {
+      max-width: 600px; margin: -50px auto 0; background: rgba(255,255,255,0.95); padding:25px; 
+      border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,.15);
+    }
+    h1 { margin:10px 0; font-size:24px; color:#042d62; }
+    h2 { margin:10px 0; font-size:16px; color:#333; }
+    .social-icons img { width:32px; margin:0 6px; vertical-align:middle; }
+    input { width:100%; padding:12px; margin:8px 0; border-radius:6px; border:1px solid #bbb; font-size:16px; }
+    button { width:100%; padding:14px; margin-top:12px; font-size:16px; border:none; border-radius:6px; cursor:pointer; background:#042d62; color:#fff; }
+    .qr { position:absolute; right:10px; bottom:10px; width:10%; }
+    #msg { margin-top:10px; color:red; font-weight:bold; }
+  </style>
 </head>
 <body>
 
-<div class="top-image"></div>
-<div class="bottom-water"></div>
+<div class="hero"></div>
 
-<div class="title-container">
+<div class="container">
   <h1>Nursing Prometric Actual Simulation Test</h1>
-  <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE and NCLEX</h3>
+  <h2>500 test items with tricky & hard level, rationale detailing, based on Prometric/SMLE & NCLEX</h2>
   <div class="social-icons">
-    <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"></a>
-    <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
-    <a href="mailto:gyoutrain@gmail.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"></a>
-    <a href="https://web.facebook.com/gyouskill/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-    <a href="https://www.instagram.com/etkyogya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
+    <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone"></a>
+    <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WA"></a>
+    <a href="mailto:gyoutrain@gmail.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"></a>
+    <a href="https://web.facebook.com/gyouskill/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="FB"></a>
+    <a href="https://www.instagram.com/etkyogya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="IG"></a>
   </div>
-</div>
 
-<div class="form-container" id="landingForm">
-  <label for="name">Full Name</label>
-  <input type="text" id="name" placeholder="Enter your full name">
-  
-  <label for="wa">WhatsApp Number</label>
-  <input type="text" id="wa" placeholder="e.g. 6285399652487">
-
-  <label for="unlock">Unlock Code</label>
+  <input type="text" id="name" placeholder="Full Name">
+  <input type="text" id="wa" placeholder="WhatsApp Number">
   <input type="text" id="unlock" placeholder="Enter Unlock Code">
 
   <button onclick="demoTest()">Demo Test (Free)</button>
   <button onclick="confirmation()">Confirmation</button>
   <button onclick="continueTest()">Continue Next Test</button>
-</div>
 
-<div class="quiz-container" id="quizBox">
-  <div class="question" id="questionText"></div>
-  <div class="options">
-    <button class="option-btn" id="optA" onclick="checkAnswer('A')"></button>
-    <button class="option-btn" id="optB" onclick="checkAnswer('B')"></button>
-    <button class="option-btn" id="optC" onclick="checkAnswer('C')"></button>
-    <button class="option-btn" id="optD" onclick="checkAnswer('D')"></button>
-  </div>
   <div id="msg"></div>
-  <div id="scorebox"></div>
 </div>
 
-<audio id="audioCorrect" src="assets/correct.mp3" preload="auto"></audio>
-<audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
+<img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
 
 <script>
-const backend = "YOUR_APPS_SCRIPT_DEPLOYMENT_URL"; // Replace with your Apps Script URL
+const backend = "https://script.google.com/macros/s/AKfycbymK5Gi50Korrl_pcVVzx1xP0Giozj03R6TY0XIJb7t55m5oZwyrYdsxwVUjC64rpP7/exec";
 
-// ===== Landing Buttons =====
-function demoTest(){
-  window.open("https://script.google.com/macros/s/AKfycbzVzOVpdoPGiVe9dpwB0zoKbKIvD3WXGIz7wxr9AILS-fnbDP-GhGfnpki-GvTUxSk/exec", "_blank");
+function demoTest() {
+  window.open("https://script.google.com/macros/s/AKfycbzVzOVpdoPGiVe9dpwB0zoKbKIvD3WXGIz7wxr9AILS-fnbDP-GhGfnpki-GvTUxSk/exec","_blank");
 }
 
-function confirmation(){
+function confirmation() {
   const name = document.getElementById("name").value.trim();
   const wa = document.getElementById("wa").value.trim();
-  if(!name || !wa){ alert("Please fill in Name and WhatsApp number."); return; }
+  if(!name || !wa) return showMsg("Please fill both name and WA number");
 
   fetch(backend, {
-    method: "POST",
-    body: JSON.stringify({ action:"confirmation", name:name, phone:wa }),
-    headers: { "Content-Type":"application/json" }
-  })
-  .then(r=>r.json())
-  .then(d=>{
-    alert(d.reply || "Confirmation sent! Wait for Admin to approve and send unlock code via WA.");
-  })
-  .catch(e=>alert("Network error: "+e));
+    method:"POST",
+    body: JSON.stringify({action:"confirmation", name:name, phone:wa})
+  }).then(r => r.json()).then(d => showMsg(d.reply));
 }
 
-function continueTest(){
+function continueTest() {
   const code = document.getElementById("unlock").value.trim();
-  if(!code){ alert("Please enter the unlock code."); return; }
+  if(!code) return showMsg("Enter unlock code");
 
-  fetch(backend+"?verify="+encodeURIComponent(code))
-    .then(r=>r.json())
-    .then(d=>{
-      if(d.ok){
-        document.getElementById("landingForm").style.display = "none";
-        document.getElementById("quizBox").style.display = "block";
-        startQuiz(code);
+  fetch(backend+"?check="+encodeURIComponent(code))
+    .then(r => r.json())
+    .then(d => {
+      if(d.ok) {
+        window.location = "quiz.html?auth="+code;
       } else {
-        alert("Invalid or expired unlock code.");
+        showMsg("❌ " + (d.message||"Invalid code"));
       }
-    }).catch(e=>alert("Network error: "+e));
-}
-
-// ===== Quiz =====
-let questions = [];
-let currentIndex = 0, correctCount = 0, incorrectCount = 0;
-
-function startQuiz(authCode){
-  fetch(backend + "?action=getQuestions")
-    .then(r=>r.json())
-    .then(data=>{
-      questions = data;
-      currentIndex = 0; correctCount=0; incorrectCount=0;
-      loadQuestion();
-    })
-    .catch(e=>{
-      alert("Failed to load questions: "+e);
     });
 }
 
-function loadQuestion(){
-  const current = questions[currentIndex];
-  document.getElementById("questionText").innerText = `Q${current.number}: ${current.question}`;
-  document.getElementById("optA").innerText = "A. "+current.options[0];
-  document.getElementById("optB").innerText = "B. "+current.options[1];
-  document.getElementById("optC").innerText = "C. "+current.options[2];
-  document.getElementById("optD").innerText = "D. "+current.options[3];
-  document.getElementById("msg").innerText = "";
-}
-
-function checkAnswer(selected){
-  const current = questions[currentIndex];
-  const audioCorrect = document.getElementById("audioCorrect");
-  const audioWrong = document.getElementById("audioWrong");
-
-  if(selected === current.correct){
-    correctCount++;
-    audioCorrect.currentTime = 0; audioCorrect.play();
-    document.getElementById("msg").innerText = "✅ Correct!";
-  } else {
-    incorrectCount++;
-    audioWrong.currentTime = 0; audioWrong.play();
-    document.getElementById("msg").innerText = `❌ Wrong! Correct: ${current.correct}\n${current.rationale}`;
-  }
-
-  currentIndex++;
-  if(currentIndex < questions.length){
-    setTimeout(loadQuestion,1200);
-  } else {
-    setTimeout(showScore,1200);
-  }
-}
-
-function showScore(){
-  const score = Math.round((correctCount/questions.length)*100);
-  const status = score >= 70 ? "PASS":"NOT PASS";
-  document.getElementById("quizBox").innerHTML = `<h2>Test Completed</h2>
-    <p>Correct: ${correctCount} / ${questions.length}</p>
-    <p>Incorrect: ${incorrectCount} / ${questions.length}</p>
-    <p>Score: ${score}%</p>
-    <p>Status: ${status}</p>`;
+function showMsg(txt) {
+  const m = document.getElementById("msg");
+  m.innerHTML = txt;
+  setTimeout(()=>{ m.innerHTML=''; },5000);
 }
 </script>
+
 </body>
 </html>
