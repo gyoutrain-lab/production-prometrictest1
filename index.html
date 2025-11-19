@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nursing Prometric Actual Simulation Test</title>
 <style>
-  body { margin:0; font-family: Arial, sans-serif; background:#f7f9fc; text-align:center; overflow-x:hidden; }
+  body { margin:0; font-family: Arial, sans-serif; background:#f7f9fc; overflow-x:hidden; }
 
   /* Top static image */
   .top-image {
@@ -14,7 +14,7 @@
     background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
   }
 
-  /* Flowing background image behind form/QR */
+  /* Flowing background behind front page content */
   .flowing-bg {
     position: relative;
     width:100%;
@@ -33,48 +33,44 @@
     100% { background-position: 0 bottom; }
   }
 
+  /* Front page container */
+  #landingPage { position:relative; z-index:2; }
+
   /* Title and subtitle always front */
   .title-container {
-    position: relative;
-    margin-top:-45vh; /* on top of flowing background */
     text-align:center;
     color:#042d62;
-    z-index:2;
+    margin-top:-45vh; /* overlaps flowing background */
   }
   .title-container h1 { font-size:28px; margin:0; }
   .title-container h3 { font-size:18px; margin:5px 0; }
   .social-icons img { width:32px; margin:0 6px; cursor:pointer; }
 
-  /* Form container left below flowing background */
+  /* Form container left, smaller size */
   .form-container {
-    position: relative;
-    max-width:150px;  /* smaller width like QR */
-    margin:0;
-    margin-top:-10px; /* adjust spacing below flowing image */
+    position:relative;
+    float:left;
+    width:40%;
+    margin-top:-10px;
     padding:15px;
     background:white;
     border-radius:12px;
     box-shadow:0 0 15px rgba(0,0,0,0.1);
     text-align:left;
-    z-index:1;
-    float:left;
   }
-
-  .form-container label { font-weight:bold; display:block; margin-top:10px; }
+  .form-container label { font-weight:bold; display:block; margin-top:8px; }
   .form-container input { width:100%; padding:8px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:14px; }
-
-  .form-container button { width:100%; margin-top:10px; padding:10px; font-size:14px; border:none; border-radius:6px; cursor:pointer; }
-
+  .form-container button { width:100%; margin-top:8px; padding:10px; font-size:14px; border:none; border-radius:6px; cursor:pointer; }
   .demo-btn { background:gold; color:#000; }
   .confirm-btn { background:#0056b3; color:#fff; }
   .continue-btn { background:green; color:#fff; }
 
-  /* QR code right below flowing image */
+  /* QR code right, half size, under top image */
   .qr {
-    position: relative;
+    position:relative;
     float:right;
-    width:150px; /* similar to form container */
-    margin-top:-10px; /* align with container */
+    width:20%;
+    margin-top:-10px;
     z-index:1;
   }
 
@@ -93,7 +89,7 @@
   .question { font-size:20px; margin:20px 0; }
   .options button { width:100%; padding:14px; margin:8px 0; font-size:18px; border-radius:6px; border:1px solid #bbb; cursor:pointer; }
   #msg { font-weight:bold; margin:15px 0; min-height:24px; }
-  #scorebox { margin-top:30px; font-size:18px; clear:both; }
+  #scorebox { margin-top:30px; font-size:18px; }
 </style>
 </head>
 <body>
@@ -104,37 +100,42 @@
 <!-- Flowing background -->
 <div class="flowing-bg"></div>
 
-<!-- Title and subtitle -->
-<div class="title-container">
-  <h1>Nursing Prometric Actual Simulation Test</h1>
-  <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE & NCLEX</h3>
-  <div class="social-icons">
-    <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"></a>
-    <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
-    <a href="mailto:gyoutrain@gmail.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"></a>
-    <a href="https://web.facebook.com/gyouskill/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-    <a href="https://www.instagram.com/etkyogya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
+<!-- Front page wrapper -->
+<div id="landingPage">
+
+  <!-- Title/subtitle -->
+  <div class="title-container">
+    <h1>Nursing Prometric Actual Simulation Test</h1>
+    <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE & NCLEX</h3>
+    <div class="social-icons">
+      <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"></a>
+      <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
+      <a href="mailto:gyoutrain@gmail.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"></a>
+      <a href="https://web.facebook.com/gyouskill/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+      <a href="https://www.instagram.com/etkyogya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
+    </div>
   </div>
+
+  <!-- Form container left -->
+  <div class="form-container" id="landingForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name">
+    
+    <label for="wa">WhatsApp Number</label>
+    <input type="text" id="wa" placeholder="e.g. 6285399652487">
+
+    <label for="unlock">Unlock Code</label>
+    <input type="text" id="unlock" placeholder="Enter Unlock Code">
+
+    <button class="demo-btn" onclick="demoTest()">Demo Test (Free)</button>
+    <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
+    <button class="continue-btn" onclick="continueTest()">Continue Next Test</button>
+  </div>
+
+  <!-- QR code right -->
+  <img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
+
 </div>
-
-<!-- Form container left -->
-<div class="form-container" id="landingForm">
-  <label for="name">Full Name</label>
-  <input type="text" id="name" placeholder="Enter your full name">
-  
-  <label for="wa">WhatsApp Number</label>
-  <input type="text" id="wa" placeholder="e.g. 6285399652487">
-
-  <label for="unlock">Unlock Code</label>
-  <input type="text" id="unlock" placeholder="Enter Unlock Code">
-
-  <button class="demo-btn" onclick="demoTest()">Demo Test (Free)</button>
-  <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
-  <button class="continue-btn" onclick="continueTest()">Continue Next Test</button>
-</div>
-
-<!-- QR code right -->
-<img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
 
 <!-- Quiz container -->
 <div class="quiz-container" id="quizBox">
@@ -154,53 +155,46 @@
 <audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
 
 <script>
-const backend = "https://script.google.com/macros/s/AKfycbyyZ09UJdmwjvPrMVqjEPZmkXa40cyfC-kH4KDhoDTx1vdmhhX5BV1UDi8rjZbGhcDQ/exec";
+const backend = "https://script.google.com/macros/s/AKfycbyHtvmulVoW2r2DvJzPcCEtUpjBbwphDHrjw-9yO_LebrhdANdag3yYBygTWVKmbjNE/exec";
 
 // Landing buttons
 function demoTest(){
   window.open("https://script.google.com/macros/s/AKfycbzXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec", "_blank");
 }
 
-// Confirmation (fixed network)
-async function confirmation() {
+function confirmation(){
   const name = document.getElementById("name").value.trim();
   const wa = document.getElementById("wa").value.trim();
-  if (!name || !wa) { alert("Please fill in Name and WhatsApp number."); return; }
+  if(!name || !wa){ alert("Please fill in Name and WhatsApp number."); return; }
 
-  try {
-    await fetch(backend, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "confirmation", name, phone: wa })
-    });
-    alert(`Payment Confirmed! Share Proof Dana QR IDR 50k to get Unlock Code.`);
-  } catch (err) {
-    alert("Network error: " + err);
-  }
+  fetch(backend,{
+    method:"POST",
+    body: JSON.stringify({ action:"confirmation", name:name, phone:wa }),
+    headers: { "Content-Type":"application/json" }
+  }).then(r=>r.json())
+    .then(d=>{
+      alert(d.reply || "Confirmation sent! Wait for Admin to approve and send unlock code via WA.");
+    }).catch(e=>alert("Network error: "+e));
 }
 
-// Continue test
-async function continueTest() {
+function continueTest(){
   const code = document.getElementById("unlock").value.trim();
   if(!code){ alert("Please enter the unlock code."); return; }
 
-  try {
-    const res = await fetch(backend+"?check="+encodeURIComponent(code));
-    const data = await res.json();
-    if(data.ok){
-      document.getElementById("landingForm").style.display="none";
-      document.getElementById("quizBox").style.display="block";
-      startQuiz(code);
-    } else alert("Invalid or expired unlock code.");
-  } catch(e){
-    alert("Network error: " + e);
-  }
+  fetch(backend+"?check="+encodeURIComponent(code))
+    .then(r=>r.json())
+    .then(d=>{
+      if(d.ok){
+        document.getElementById("landingPage").style.display="none";
+        document.getElementById("quizBox").style.display="block";
+        startQuiz(code);
+      } else alert("Invalid or expired unlock code.");
+    }).catch(e=>alert("Network error: "+e));
 }
 
-// Quiz
+// Quiz logic (old format preserved)
 let questions = [];
-let currentIndex = 0, correctCount = 0, incorrectCount = 0;
+let currentIndex=0, correctCount=0, incorrectCount=0;
 
 function startQuiz(authCode){
   fetch(backend+"?questions=true")
