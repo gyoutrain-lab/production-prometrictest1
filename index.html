@@ -1,176 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nursing Prometric Actual Simulation Test</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin:0;
-    padding:0;
-    background: #e7ebf1;
-    position: relative;
-  }
-  .header {
-    text-align: center;
-    margin-top: 30px;
-  }
-  .header h1 {
-    font-size: 32px;
-    margin: 5px 0;
-  }
-  .header h3 {
-    font-size: 18px;
-    font-weight: normal;
-    margin: 5px 0 20px 0;
-  }
-  .social-icons {
-    margin: 10px 0 40px 0;
-  }
-  .social-icons a {
-    margin: 0 8px;
-    display: inline-block;
-  }
-  .social-icons img {
-    width: 32px;
-    height: 32px;
-  }
-  .landing-image {
-    width: 100%;
-    height: 50vh;
-    background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') no-repeat center center;
-    background-size: cover;
-    position: relative;
-  }
-  .water-overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50%;
-    background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') no-repeat center bottom;
-    background-size: cover;
-    opacity: 0.3;
-  }
-  .container {
-    position: absolute;
-    left: 5%;
-    top: 60%;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0,0,0,.15);
-    width: 40%;
-  }
-  .container input {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 6px;
-    border: 1px solid #bbb;
-    font-size: 16px;
-  }
-  .container button {
-    width: 100%;
-    padding: 14px;
-    margin: 8px 0;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    color: white;
-  }
-  .btn-demo { background-color: gold; color:black; }
-  .btn-confirm { background-color: #042d62; }
-  .btn-next { background-color: #28a745; }
-  .qr-code {
-    position: absolute;
-    right: 3%;
-    bottom: 5%;
-    width: 100px;
-    height: 100px;
-  }
-  #msg {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Nursing Prometric Actual Simulation Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin:0; font-family: Arial,sans-serif; background:#e7ebf1; text-align:center; 
+    }
+    .hero {
+      position: relative; width:100%; height:50vh;
+      background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
+    }
+    .hero::after {
+      content:""; position:absolute; bottom:0; left:0; width:100%; height:50%; 
+      background: linear-gradient(to top, rgba(231,235,241,0.9), rgba(231,235,241,0));
+    }
+    .container {
+      max-width: 600px; margin: -50px auto 0; background: rgba(255,255,255,0.95); padding:25px; 
+      border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,.15);
+    }
+    h1 { margin:10px 0; font-size:24px; color:#042d62; }
+    h2 { margin:10px 0; font-size:16px; color:#333; }
+    .social-icons img { width:32px; margin:0 6px; vertical-align:middle; }
+    input { width:100%; padding:12px; margin:8px 0; border-radius:6px; border:1px solid #bbb; font-size:16px; }
+    button { width:100%; padding:14px; margin-top:12px; font-size:16px; border:none; border-radius:6px; cursor:pointer; background:#042d62; color:#fff; }
+    .qr { position:absolute; right:10px; bottom:10px; width:10%; }
+    #msg { margin-top:10px; color:red; font-weight:bold; }
+  </style>
 </head>
 <body>
 
-<div class="landing-image">
-  <div class="water-overlay"></div>
-</div>
-
-<div class="header">
-  <h1>Nursing Prometric Actual Simulation Test</h1>
-  <h3>500 test items with tricky and hard level with rationale detailing the elaboration, based on Prometric/SMLE and NCLEX Prometric Test</h3>
-  <div class="social-icons">
-    <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"></a>
-    <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
-    <a href="mailto:gyoutrain@gmail.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"></a>
-    <a href="https://web.facebook.com/gyouskill/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-    <a href="https://www.instagram.com/etkyogya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
-  </div>
-</div>
+<div class="hero"></div>
 
 <div class="container">
+  <h1>Nursing Prometric Actual Simulation Test</h1>
+  <h2>500 test items with tricky & hard level, rationale detailing, based on Prometric/SMLE & NCLEX</h2>
+  <div class="social-icons">
+    <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone"></a>
+    <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WA"></a>
+    <a href="mailto:gyoutrain@gmail.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"></a>
+    <a href="https://web.facebook.com/gyouskill/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="FB"></a>
+    <a href="https://www.instagram.com/etkyogya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="IG"></a>
+  </div>
+
   <input type="text" id="name" placeholder="Full Name">
   <input type="text" id="wa" placeholder="WhatsApp Number">
   <input type="text" id="unlock" placeholder="Enter Unlock Code">
-  <button class="btn-demo" onclick="demoTest()">Demo Test (Free)</button>
-  <button class="btn-confirm" onclick="confirmation()">Confirmation</button>
-  <button class="btn-next" onclick="continueNext()">Continue Next Test</button>
+
+  <button onclick="demoTest()">Demo Test (Free)</button>
+  <button onclick="confirmation()">Confirmation</button>
+  <button onclick="continueTest()">Continue Next Test</button>
+
   <div id="msg"></div>
 </div>
 
-<img class="qr-code" src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" alt="Dana QR">
+<img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
 
 <script>
-const backend = "https://script.google.com/macros/s/AKfycbXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec";
+const backend = "https://script.google.com/macros/s/AKfycbymK5Gi50Korrl_pcVVzx1xP0Giozj03R6TY0XIJb7t55m5oZwyrYdsxwVUjC64rpP7/exec";
 
-function demoTest(){
-  const name = document.getElementById('name').value;
-  const wa = document.getElementById('wa').value;
-  if(!name || !wa){ 
-    document.getElementById('msg').innerText = "❌ Fill Name and WA first";
-    return; 
-  }
-  window.open("https://script.google.com/macros/s/AKfycbVzOVpdoPGiVe9dpwB0zoKbKIvD3WXGIz7wxr9AILS-fnbDP-GhGfnpki-GvTUxSk/exec?name="+encodeURIComponent(name)+"&phone="+encodeURIComponent(wa));
+function demoTest() {
+  window.open("https://script.google.com/macros/s/AKfycbzVzOVpdoPGiVe9dpwB0zoKbKIvD3WXGIz7wxr9AILS-fnbDP-GhGfnpki-GvTUxSk/exec","_blank");
 }
 
-function confirmation(){
-  const name = document.getElementById('name').value;
-  const wa = document.getElementById('wa').value;
-  if(!name || !wa){ 
-    document.getElementById('msg').innerText = "❌ Fill Name and WA first";
-    return; 
-  }
+function confirmation() {
+  const name = document.getElementById("name").value.trim();
+  const wa = document.getElementById("wa").value.trim();
+  if(!name || !wa) return showMsg("Please fill both name and WA number");
+
   fetch(backend, {
-    method: "POST",
+    method:"POST",
     body: JSON.stringify({action:"confirmation", name:name, phone:wa})
-  })
-  .then(r => r.json())
-  .then(d => {
-    document.getElementById('msg').innerText = d.reply || "✅ Confirmation sent!";
-  });
+  }).then(r => r.json()).then(d => showMsg(d.reply));
 }
 
-function continueNext(){
-  const code = document.getElementById('unlock').value;
-  if(!code){
-    document.getElementById('msg').innerText = "❌ Enter Unlock Code first";
-    return;
-  }
+function continueTest() {
+  const code = document.getElementById("unlock").value.trim();
+  if(!code) return showMsg("Enter unlock code");
+
   fetch(backend+"?check="+encodeURIComponent(code))
-    .then(r=>r.json())
-    .then(d=>{
-      if(d.ok){
+    .then(r => r.json())
+    .then(d => {
+      if(d.ok) {
         window.location = "quiz.html?auth="+code;
       } else {
-        document.getElementById('msg').innerText = "❌ "+(d.message||"Invalid code");
+        showMsg("❌ " + (d.message||"Invalid code"));
       }
     });
+}
+
+function showMsg(txt) {
+  const m = document.getElementById("msg");
+  m.innerHTML = txt;
+  setTimeout(()=>{ m.innerHTML=''; },5000);
 }
 </script>
 
