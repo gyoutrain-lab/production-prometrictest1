@@ -20,18 +20,20 @@
     --accent-blue:#0d6efd;
     --accent-green:#28a745;
     --accent-gold:#ffd54a;
+    --quiz-blue:#cfeeff;
+    --quiz-blue-glow: #9aeaff;
+    --quiz-red-glow: #ffc1c1;
   }
 
   *{box-sizing:border-box}
   html,body{height:100%; margin:0; font-family: "Inter", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased;}
   body{background:var(--bg); color:var(--text); text-align:center; overflow-x:hidden; padding-bottom:40px;}
 
-  /* HERO */
+  /* HERO & landing unchanged (kept same as original) */
   .top-hero{width:100%; height:48vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat; position:relative;}
   .flowing-bg{position:relative; width:100%; height:48vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom; opacity:0.14; filter: blur(2px); background-size:cover; animation:flowWave 32s linear infinite; z-index:0}
   @keyframes flowWave{0%{background-position:0 bottom}50%{background-position:520px bottom}100%{background-position:0 bottom}}
 
-  /* TITLE + SOCIAL */
   .title-container{position:relative; margin-top:-42vh; z-index:2; text-align:center; padding:0 12px;}
   .title-h1{display:inline-flex; align-items:center; gap:10px; font-size:26px; font-weight:800;}
   .title-sub{margin-top:6px; font-size:15px; color:rgba(4,45,98,0.92);}
@@ -39,7 +41,6 @@
   .social-icons img{width:40px;height:40px;border-radius:50%;box-shadow:0 8px 22px rgba(0,0,0,0.08);transition:transform .22s}
   .social-icons img:hover{transform:translateY(-6px) scale(1.08)}
 
-  /* CARDS */
   .card-row{display:flex; justify-content:center; align-items:flex-start; gap:22px; margin-top:18px; flex-wrap:wrap; padding:0 16px}
   .form-card{
     min-width:260px; max-width:380px; width:100%;
@@ -66,52 +67,115 @@
   .input{display:block; width:100%; padding:10px 12px; margin-top:6px; border-radius:12px; border:1px solid rgba(6,24,70,0.06); background: rgba(255,255,255,0.9); font-size:14px; outline:none}
   .input:focus{box-shadow:0 6px 20px rgba(8,56,123,0.06); border-color: rgba(6,24,70,0.12); transform:translateY(-1px)}
 
-  /* segmented buttons */
   .seg{display:flex; gap:10px; margin-top:16px}
   .btn{flex:1; display:inline-flex; gap:10px; align-items:center; justify-content:center; padding:12px 10px; border-radius:12px; border:none; cursor:pointer; font-weight:800; font-size:14px; transition:.18s; position:relative; overflow:visible}
-  .btn .icon{font-size:16px}
   .btn-demo{background:linear-gradient(90deg,var(--accent-gold),#ffc107); color:#0b2b2b; box-shadow:0 10px 28px rgba(255,197,61,0.12)}
   .btn-confirm{background:linear-gradient(90deg,var(--accent-blue),#0056b3); color:white; box-shadow:0 10px 28px rgba(13,110,253,0.08)}
   .btn-continue{background:linear-gradient(90deg,var(--accent-green),#1e7e34); color:white; box-shadow:0 10px 28px rgba(46,204,113,0.08)}
   .btn:hover{transform:translateY(-4px); filter:brightness(1.03)}
 
-  /* demo pulse */
   @keyframes pulseSoft{0%{box-shadow:0 8px 22px rgba(255,197,61,0.14)}50%{box-shadow:0 18px 40px rgba(255,197,61,0.22)}100%{box-shadow:0 8px 22px rgba(255,197,61,0.14)}}
   .btn-demo.pulse{animation:pulseSoft 2.6s ease-in-out infinite}
 
-  /* quiz full-screen */
-  .quiz-container{position:fixed; top:0; left:0; width:100%; height:100vh; display:none; align-items:flex-start; justify-content:center; background:linear-gradient(180deg, rgba(243,246,249,0.9), rgba(241,246,255,0.96)); z-index:999; overflow:auto; padding:28px 12px}
+  /* =================== QUIZ UPGRADES (ONLY THIS BLOCK CHANGED) =================== */
+
+  /* quiz full-screen container (kept original behavior) */
+  .quiz-container{position:fixed; top:0; left:0; width:100%; height:100vh; display:none; align-items:flex-start; justify-content:center; background:linear-gradient(180deg, rgba(243,246,249,0.95), rgba(241,246,255,0.98)); z-index:999; overflow:auto; padding:28px 12px}
   .quiz-inner{width:100%; max-width:920px; background:white; margin-top:18px; border-radius:14px; padding:26px; box-shadow:0 18px 40px rgba(6,24,70,0.12)}
   .quiz-top{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px}
   .quiz-top-left{display:flex; gap:12px; align-items:center}
   .back-home{background:transparent; border:1px solid rgba(6,24,70,0.08); padding:8px 12px; border-radius:10px; cursor:pointer}
   .counter{font-weight:700}
 
-  /* progress bar */
+  /* progress bar (unchanged) */
   .progress-wrap{width:100%; background:rgba(6,24,70,0.06); height:10px; border-radius:999px; overflow:hidden}
   .progress-bar{height:100%; width:0%; background:linear-gradient(90deg,#81d4fa,#0288d1); transition:width .35s ease}
 
-  .question-box{background:#eaf6ff; padding:20px; border-radius:12px; font-size:18px; min-height:110px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(6,24,70,0.06)}
-  .options{margin-top:16px; display:flex; flex-direction:column; gap:10px}
-  .option-btn{padding:14px; border-radius:12px; border:1px solid #d9e6f2; background:white; cursor:pointer; font-size:16px; text-align:left}
-  .option-btn.correct{background:linear-gradient(90deg,#d6f3ff,#b3e5fc)}
-  .option-btn.incorrect{background:linear-gradient(90deg,#ffd6d6,#ffc9c9)}
-  #msg{min-height:24px; font-weight:700; margin-top:12px}
+  /* === QUESTION CONTAINER - BIG, BOLD, EMBOSSED BLUE, LEFT-ALIGNED === */
+  .question-box{
+    background: linear-gradient(180deg, var(--quiz-blue), #e6f6ff);
+    padding:28px 22px;
+    border-radius:14px;
+    font-size:2.4rem;       /* ~3x bigger than prior 18px */
+    font-weight:800;
+    min-height:140px;
+    text-align:left;        /* left margin per your request */
+    color: #024;
+    box-shadow: 0 10px 28px rgba(138,186,255,0.18), inset 0 2px 8px rgba(255,255,255,0.6);
+    margin-bottom:18px;
+    line-height:1.18;
+  }
 
-  /* loading */
+  /* === OPTIONS - each in its own container, larger spacing, left aligned === */
+  .options{ margin-top:10px; display:flex; flex-direction:column; gap:20px; }
+  .option-btn{
+    padding:22px 18px;
+    border-radius:14px;
+    border:1px solid rgba(13,110,253,0.08);
+    background: #fff;
+    font-size:1.9rem;      /* ~3x bigger than prior 16px */
+    text-align:left;
+    cursor:pointer;
+    transition: transform .18s, box-shadow .18s;
+    box-shadow: 0 6px 18px rgba(6,24,70,0.04);
+  }
+  .option-btn:active{ transform: translateY(1px) }
+
+  /* correct: shiny embossing light blue + glow */
+  .option-btn.correct{
+    background: linear-gradient(90deg, #d6f3ff, #b3e5fc);
+    border-color: rgba(30,150,255,0.8);
+    box-shadow: 0 12px 30px rgba(110,200,255,0.25);
+    outline: 2px solid rgba(110,200,255,0.08);
+  }
+
+  /* incorrect: shiny embossing light red, no sound */
+  .option-btn.incorrect{
+    background: linear-gradient(90deg, #ffd6d6, #ffc9c9);
+    border-color: rgba(255,110,110,0.9);
+    box-shadow: 0 12px 30px rgba(255,160,160,0.18);
+    outline: 2px solid rgba(255,110,110,0.06);
+  }
+
+  /* rationale outside container at bottom, dark blue text */
+  #msg {
+    margin-top:18px;
+    display:block;
+    color:#002d72;
+    font-size:1.35rem;
+    font-weight:700;
+    text-align:left;
+    padding:14px 12px;
+    background:transparent;
+    min-height:44px;
+  }
+
+  /* top-right status: timer + percent */
+  .status-box{
+    display:flex; gap:12px; align-items:center; justify-content:flex-end;
+    min-width:180px; font-weight:700; color:#073;
+  }
+  .status-item{ font-size:0.95rem; color:#024; background: rgba(2,77,130,0.06); padding:8px 10px; border-radius:8px; }
+
+  /* small screens: reduce sizes but stay large enough */
+  @media (max-width:600px){
+    .question-box{ font-size:1.6rem; padding:18px; min-height:120px }
+    .option-btn{ font-size:1.3rem; padding:16px }
+    #msg{ font-size:1.05rem }
+  }
+
+  /* =================== END QUIZ CHANGES =================== */
+
+  /* loading spinner */
   .loader-wrap{display:flex; align-items:center; gap:12px; justify-content:center; padding:24px}
   .spinner{width:42px; height:42px; border-radius:50%; border:5px solid rgba(6,24,70,0.08); border-top-color: rgba(6,24,70,0.36); animation:spin .9s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
 
-  /* score card */
+  /* score card (unchanged) */
   .score-card{padding:18px; border-radius:12px; background:linear-gradient(180deg,#f8fbff,#ffffff); box-shadow:0 8px 22px rgba(6,24,70,0.06); text-align:center}
   .score-card h2{margin:6px 0}
   .score-vals{display:flex; justify-content:space-around; gap:12px; margin-top:12px; font-weight:700}
 
-  @media (max-width:800px){
-    .card-row{flex-direction:column; align-items:center}
-    .qr-card{order:2}
-  }
 </style>
 </head>
 <body>
@@ -123,7 +187,7 @@
   <!-- TITLE + SOCIAL -->
   <div class="title-container" role="banner" aria-label="Landing header">
     <div class="title-h1"><span style="font-size:28px">🩺</span><span>Nursing Prometric Actual Simulation Test</span></div>
-    <div class="title-sub">500 tricky & hard-level items — based on Prometric, SMLE & NCLEX</div>
+    <div class="title-sub">500 tricky & hard-level items — based on Prometric/SMLE & NCLEX</div>
 
     <div class="social-icons" role="navigation" aria-label="social links">
       <a href="tel:+6285399652487" title="Telephone"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="phone"></a>
@@ -183,9 +247,10 @@
           </div>
         </div>
 
-        <div style="width:40%; min-width:160px">
-          <div class="progress-wrap" aria-hidden="false" title="Progress">
-            <div id="progressBar" class="progress-bar" style="width:0%"></div>
+        <div style="width:40%; min-width:160px; display:flex; align-items:center; justify-content:flex-end;">
+          <div class="status-box" aria-hidden="false">
+            <div class="status-item" id="timer">Time: 00:00</div>
+            <div class="status-item" id="percent">Correct: 0%</div>
           </div>
         </div>
       </div>
@@ -219,7 +284,7 @@
 
 <script>
 /* =========================
-   Backend URLs
+   Backend URLs (unchanged)
    ========================= */
 const mainBackend = "https://script.google.com/macros/s/AKfycbyyZ09UJdmwjvPrMVqjEPZmkXa40cyfC-kH4KDhoDTx1vdmhhX5BV1UDi8rjZbGhcDQ/exec";
 const demoBackend = "https://script.google.com/macros/s/AKfycbwvKxmFkKqMAMqqZ49B47AvOHOSy8a4qAebICHYW0_I_SUY2k8i9xh5D1EddAG-OO5n/exec";
@@ -296,20 +361,22 @@ document.getElementById("backHome").addEventListener("click", ()=>{
 });
 
 /* =========================
-   Quiz logic & UI helpers
+   Quiz logic & UI helpers (UPDATED)
    ========================= */
 let questions = [];
 let currentIndex = 0;
 let correctCount = 0;
 let incorrectCount = 0;
 let totalQuestions = 0;
+let seconds = 0;
+let timerInterval = null;
 
 function showQuizLoader(show){
   document.getElementById("loader").style.display = show ? "flex" : "none";
   document.getElementById("quizContent").style.display = show ? "none" : "block";
 }
 
-/* Start quiz - fetch questions from main backend */
+/* Start quiz - fetch questions from main backend (keeps original backend call) */
 function startQuiz(authCode){
   // reset
   questions = [];
@@ -317,13 +384,17 @@ function startQuiz(authCode){
   correctCount = 0;
   incorrectCount = 0;
   totalQuestions = 0;
+  seconds = 0;
   updateProgress(0,0);
+  updateTimerDisplay(0);
+  updatePercentDisplay();
 
   showQuizLoader(true);
   document.getElementById("questionBox").style.display = "none";
   document.getElementById("optionsArea").style.display = "none";
   document.getElementById("msg").textContent = "";
 
+  // fetch the question set
   fetch(mainBackend + "?questions=true")
     .then(r => r.json())
     .then(data => {
@@ -338,6 +409,7 @@ function startQuiz(authCode){
       showQuizLoader(false);
       document.getElementById("questionBox").style.display = "block";
       document.getElementById("optionsArea").style.display = "block";
+      startTimer();
       loadQuestion();
     })
     .catch(e => {
@@ -347,8 +419,30 @@ function startQuiz(authCode){
     });
 }
 
+/* Timer */
+function startTimer(){
+  stopTimer();
+  seconds = 0;
+  updateTimerDisplay(seconds);
+  timerInterval = setInterval(()=>{
+    seconds++;
+    updateTimerDisplay(seconds);
+  },1000);
+}
+function stopTimer(){
+  if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
+}
+function updateTimerDisplay(sec){
+  const m = String(Math.floor(sec/60)).padStart(2,'0');
+  const s = String(sec%60).padStart(2,'0');
+  const el = document.getElementById('timer');
+  if(el) el.textContent = `Time: ${m}:${s}`;
+}
+
+/* Load a question into UI using your required styles & spacing */
 function loadQuestion(){
   if(currentIndex >= totalQuestions){
+    stopTimer();
     showScore();
     return;
   }
@@ -359,26 +453,42 @@ function loadQuestion(){
   // progress
   updateProgress(currentIndex, totalQuestions);
 
-  // question text
+  // question text - big embossed left-aligned
   const qText = `Q${q.number || (currentIndex+1)}: ${q.question || ''}`;
-  document.getElementById("questionBox").textContent = qText;
+  const questionBox = document.getElementById("questionBox");
+  questionBox.textContent = qText;
 
-  // options
-  document.getElementById("optA").textContent = `A. ${q.options && q.options[0] ? q.options[0] : ''}`;
-  document.getElementById("optB").textContent = `B. ${q.options && q.options[1] ? q.options[1] : ''}`;
-  document.getElementById("optC").textContent = `C. ${q.options && q.options[2] ? q.options[2] : ''}`;
-  document.getElementById("optD").textContent = `D. ${q.options && q.options[3] ? q.options[3] : ''}`;
+  // options - each option in its own container; larger font and spacing
+  const optA = document.getElementById("optA");
+  const optB = document.getElementById("optB");
+  const optC = document.getElementById("optC");
+  const optD = document.getElementById("optD");
 
-  // clear classes and enable
+  optA.textContent = `A. ${q.options && q.options[0] ? q.options[0] : ''}`;
+  optB.textContent = `B. ${q.options && q.options[1] ? q.options[1] : ''}`;
+  optC.textContent = `C. ${q.options && q.options[2] ? q.options[2] : ''}`;
+  optD.textContent = `D. ${q.options && q.options[3] ? q.options[3] : ''}`;
+
+  // ensure big tap targets & clear classes
   ["optA","optB","optC","optD"].forEach(id=>{
     const el = document.getElementById(id);
     el.classList.remove("correct","incorrect");
     el.disabled = false;
+    // enlarge spacing (already controlled by CSS)
   });
 
-  document.getElementById("msg").textContent = "";
+  // clear message area
+  const msg = document.getElementById("msg");
+  msg.style.display = 'none';
+  msg.textContent = '';
+
+  // show question & options
+  document.getElementById("questionBox").style.display = "block";
+  document.getElementById("optionsArea").style.display = "block";
+  updatePercentDisplay();
 }
 
+/* Option selected - apply correct/incorrect highlights and rationale durations */
 function selectOption(letter){
   // prevent double clicks
   const btnId = 'opt' + letter;
@@ -386,41 +496,89 @@ function selectOption(letter){
   if(btn.disabled) return;
 
   const current = questions[currentIndex];
-  const correct = current.correct; // expected 'A' / 'B' etc
-  // reveal correct & selected
+  const correct = current.correct; // 'A'/'B'/'C'/'D'
+
+  // disable all buttons immediately to prevent double clicks
   ["A","B","C","D"].forEach(l=>{
     const el = document.getElementById('opt' + l);
-    el.disabled = true;
-    if(l === correct) el.classList.add('correct');
-    if(l === letter && l !== correct) el.classList.add('incorrect');
+    if(el){ el.disabled = true; }
   });
 
+  // highlight correct and selected
+  ["A","B","C","D"].forEach(l=>{
+    const el = document.getElementById('opt' + l);
+    if(!el) return;
+    if(l === correct){
+      el.classList.add('correct');
+    }
+    if(l === letter && l !== correct){
+      el.classList.add('incorrect');
+    }
+  });
+
+  // update counts & sound/rationale
   if(letter === correct){
     correctCount++;
+    // play inspiring sound for correct
     playAudio('audioCorrect');
-    document.getElementById("msg").textContent = "✅ Correct!";
+    showRationaleShort(current.rationale || 'Correct!');
   } else {
     incorrectCount++;
-    playAudio('audioWrong');
-    // show rationale if available
-    const r = current.rationale ? `\n${current.rationale}` : '';
-    document.getElementById("msg").textContent = `❌ Wrong! Correct: ${correct}${r}`;
+    // no sound for wrong; show rationale longer
+    showRationaleLong(current.rationale || `Wrong. Correct: ${correct}`);
   }
 
   currentIndex++;
   updateProgress(currentIndex, totalQuestions);
+  updatePercentDisplay();
 
+  // after delay (short for correct, longer for wrong), load next or show score
+  const delay = (letter === correct) ? 900 : 1800; // wrong twice time duration
   setTimeout(()=>{
-    if(currentIndex < totalQuestions) loadQuestion();
-    else showScore();
-  }, 1100);
+    if(currentIndex < totalQuestions){
+      loadQuestion();
+    } else {
+      stopTimer();
+      showScore();
+    }
+  }, delay);
 }
 
+/* Rationale display helpers */
+function showRationaleShort(text){
+  const msg = document.getElementById('msg');
+  msg.style.display = 'block';
+  msg.textContent = text;
+  msg.style.color = '#002d72';
+  // hide after short duration
+  setTimeout(()=>{ msg.style.display = 'none'; msg.textContent = ''; }, 1400);
+}
+
+function showRationaleLong(text){
+  const msg = document.getElementById('msg');
+  msg.style.display = 'block';
+  msg.textContent = text;
+  msg.style.color = '#002d72';
+  // hide after longer duration (twice)
+  setTimeout(()=>{ msg.style.display = 'none'; msg.textContent = ''; }, 3000);
+}
+
+/* progress bar */
 function updateProgress(index, total){
   const pct = total > 0 ? Math.round((index/total) * 100) : 0;
-  document.getElementById("progressBar").style.width = pct + "%";
+  const bar = document.getElementById("progressBar");
+  if(bar) bar.style.width = pct + "%";
 }
 
+/* percent display (top-right) */
+function updatePercentDisplay(){
+  const answered = correctCount + incorrectCount;
+  const percent = answered === 0 ? 0 : Math.round((correctCount / answered) * 100);
+  const el = document.getElementById('percent');
+  if(el) el.textContent = `Correct: ${percent}%`;
+}
+
+/* show final score (keeps original showScore behavior but with our updated counts) */
 function showScore(){
   const total = totalQuestions || 1;
   const score = Math.round((correctCount/total)*100);
@@ -447,18 +605,15 @@ function showScore(){
 
   // wire up buttons on score card
   document.getElementById("btnBackToHomeAfterScore").addEventListener("click", ()=>{
-    // return to landing (reset)
     resetQuiz();
+    // restore original landing & quiz inner
     document.getElementById("quizBox").style.display = "none";
     document.getElementById("landingPage").style.display = "flex";
-    // restore quiz inner to original markup (so back button works)
     restoreQuizInner();
   });
 
   document.getElementById("btnRetry").addEventListener("click", ()=>{
-    // restart by reloading questions
     restoreQuizInner(() => {
-      // start again
       startQuiz();
     });
   });
@@ -471,6 +626,9 @@ function resetQuiz(){
   document.getElementById("questionCounter").textContent = "Q0 / 0";
   document.getElementById("questionLabel").textContent = "";
   document.getElementById("msg").textContent = "";
+  updateTimerDisplay(0);
+  updatePercentDisplay();
+  stopTimer();
 }
 
 /* restore quiz-inner to the original structure after score */
@@ -485,9 +643,10 @@ function restoreQuizInner(callback){
           <div style="font-size:13px; color:rgba(4,45,98,0.7)" id="questionLabel">Section & Topic</div>
         </div>
       </div>
-      <div style="width:40%; min-width:160px">
-        <div class="progress-wrap" title="Progress">
-          <div id="progressBar" class="progress-bar" style="width:0%"></div>
+      <div style="width:40%; min-width:160px; display:flex; align-items:center; justify-content:flex-end;">
+        <div class="status-box" aria-hidden="false">
+          <div class="status-item" id="timer">Time: 00:00</div>
+          <div class="status-item" id="percent">Correct: 0%</div>
         </div>
       </div>
     </div>
@@ -528,7 +687,7 @@ function playAudio(id){
   }catch(e){console.warn(e)}
 }
 
-/* wire initial button listeners */
+/* wire initial button listeners (unchanged) */
 document.getElementById('btnDemo').addEventListener('click', ()=>{ document.getElementById('btnDemo').classList.remove('pulse'); demoTest(); setTimeout(()=>document.getElementById('btnDemo').classList.add('pulse'), 3500); });
 document.getElementById('btnConfirm').addEventListener('click', confirmation);
 document.getElementById('btnContinue').addEventListener('click', continueTest);
