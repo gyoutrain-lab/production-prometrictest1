@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>🩺 Nursing Prometric Actual Simulation Test</title>
 
-<!-- Social thumbnail -->
 <meta property="og:title" content="🩺Nursing Prometric Actual Simulation Test">
 <meta property="og:description" content="500 tricky & hard level test items with rationale. Based on Prometric, SMLE & NCLEX.">
 <meta property="og:image" content="https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest1/main/assets/icon17%20(1).jpg">
@@ -14,43 +13,40 @@
 
 <style>
   :root{
-    --glass-bg: rgba(255,255,255,0.32);
-    --glass-strong: rgba(255,255,255,0.5);
-    --accent-blue: #0d6efd;
-    --accent-green: #28a745;
-    --accent-gold: #ffd54a;
-    --text-dark: #042d62;
+    --bg:#f3f6f9;
+    --text:#042d62;
+    --glass: rgba(255,255,255,0.34);
+    --glass-strong: rgba(255,255,255,0.56);
+    --accent-blue:#0d6efd;
+    --accent-green:#28a745;
+    --accent-gold:#ffd54a;
   }
 
-  /* Reset + base */
   *{box-sizing:border-box}
   html,body{height:100%; margin:0; font-family: "Inter", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased;}
-  body{background:#f3f6f9; color:var(--text-dark); text-align:center; overflow-x:hidden; padding-bottom:40px;}
+  body{background:var(--bg); color:var(--text); text-align:center; overflow-x:hidden; padding-bottom:40px;}
 
-  /* Top hero */
+  /* HERO */
   .top-hero{width:100%; height:48vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat; position:relative;}
   .flowing-bg{position:relative; width:100%; height:48vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom; opacity:0.14; filter: blur(2px); background-size:cover; animation:flowWave 32s linear infinite; z-index:0}
   @keyframes flowWave{0%{background-position:0 bottom}50%{background-position:520px bottom}100%{background-position:0 bottom}}
 
-  /* Title */
+  /* TITLE + SOCIAL */
   .title-container{position:relative; margin-top:-42vh; z-index:2; text-align:center; padding:0 12px;}
-  .title-h1{display:inline-flex; align-items:center; gap:10px; font-size:26px; font-weight:800; color:var(--text-dark);}
-  .title-h1 .title-emoji{font-size:28px}
-  .title-sub{margin-top:6px; font-size:15px; color:rgba(4,45,98,0.92); opacity:0.95}
+  .title-h1{display:inline-flex; align-items:center; gap:10px; font-size:26px; font-weight:800;}
+  .title-sub{margin-top:6px; font-size:15px; color:rgba(4,45,98,0.92);}
+  .social-icons{margin-top:10px; display:flex; justify-content:center; gap:12px}
+  .social-icons img{width:40px;height:40px;border-radius:50%;box-shadow:0 8px 22px rgba(0,0,0,0.08);transition:transform .22s}
+  .social-icons img:hover{transform:translateY(-6px) scale(1.08)}
 
-  /* Social icons */
-  .social-icons{margin-top:14px; display:flex; justify-content:center; gap:12px; align-items:center}
-  .social-icons a img{width:40px; height:40px; border-radius:50%; box-shadow:0 6px 18px rgba(0,0,0,0.12); transition: transform .22s ease, box-shadow .22s ease}
-  .social-icons a img:hover{transform:translateY(-6px) scale(1.12); box-shadow:0 12px 32px rgba(0,122,255,0.14)}
-
-  /* Card layout */
+  /* CARDS */
   .card-row{display:flex; justify-content:center; align-items:flex-start; gap:22px; margin-top:18px; flex-wrap:wrap; padding:0 16px}
   .form-card{
-    min-width:260px; max-width:360px; width:100%;
-    background:var(--glass-bg);
+    min-width:260px; max-width:380px; width:100%;
+    background:var(--glass);
     border-radius:18px;
     padding:20px;
-    box-shadow: 0 14px 40px rgba(6,24,70,0.10), inset 0 1px 0 rgba(255,255,255,0.06);
+    box-shadow: 0 14px 40px rgba(6,24,70,0.06);
     backdrop-filter: blur(12px) saturate(120%);
     -webkit-backdrop-filter: blur(12px) saturate(120%);
     text-align:left;
@@ -61,83 +57,61 @@
     border-radius:16px;
     padding:14px;
     display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 12px 34px rgba(6,24,70,0.10);
+    box-shadow: 0 12px 34px rgba(6,24,70,0.08);
     backdrop-filter: blur(12px);
   }
   .qr-card img{width:150px; border-radius:12px; display:block}
 
-  /* Form fields */
   label{display:block; font-weight:700; margin-top:10px; color:#06304b}
-  .input{
-    display:block; width:100%; padding:10px 12px; margin-top:6px;
-    border-radius:12px; border:1px solid rgba(6,24,70,0.08);
-    background: rgba(255,255,255,0.9); font-size:14px; outline:none;
-    transition: box-shadow .18s ease, border-color .18s ease, transform .12s;
-  }
-  .input:focus{box-shadow:0 6px 20px rgba(8,56,123,0.09); border-color: rgba(6,24,70,0.18); transform:translateY(-1px)}
+  .input{display:block; width:100%; padding:10px 12px; margin-top:6px; border-radius:12px; border:1px solid rgba(6,24,70,0.06); background: rgba(255,255,255,0.9); font-size:14px; outline:none}
+  .input:focus{box-shadow:0 6px 20px rgba(8,56,123,0.06); border-color: rgba(6,24,70,0.12); transform:translateY(-1px)}
 
-  /* Buttons — segmented pro glass */
-  .seg-wrapper{width:100%; display:flex; justify-content:center; margin-top:14px}
-  .seg{display:flex; gap:8px; width:100%; align-items:stretch}
-  .seg .btn{
-    flex:1; display:inline-flex; gap:10px; align-items:center; justify-content:center;
-    padding:12px 8px; border-radius:12px; border:none; cursor:pointer;
-    font-weight:700; font-size:14px; color:#fff;
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s;
-    box-shadow: 0 8px 22px rgba(6,24,70,0.10);
-    position:relative; overflow:visible;
-  }
+  /* segmented buttons */
+  .seg{display:flex; gap:10px; margin-top:16px}
+  .btn{flex:1; display:inline-flex; gap:10px; align-items:center; justify-content:center; padding:12px 10px; border-radius:12px; border:none; cursor:pointer; font-weight:800; font-size:14px; transition:.18s; position:relative; overflow:visible}
+  .btn .icon{font-size:16px}
+  .btn-demo{background:linear-gradient(90deg,var(--accent-gold),#ffc107); color:#0b2b2b; box-shadow:0 10px 28px rgba(255,197,61,0.12)}
+  .btn-confirm{background:linear-gradient(90deg,var(--accent-blue),#0056b3); color:white; box-shadow:0 10px 28px rgba(13,110,253,0.08)}
+  .btn-continue{background:linear-gradient(90deg,var(--accent-green),#1e7e34); color:white; box-shadow:0 10px 28px rgba(46,204,113,0.08)}
+  .btn:hover{transform:translateY(-4px); filter:brightness(1.03)}
 
-  .btn .icon{display:inline-flex; width:20px; height:20px; align-items:center; justify-content:center; font-size:16px; opacity:0.98}
+  /* demo pulse */
+  @keyframes pulseSoft{0%{box-shadow:0 8px 22px rgba(255,197,61,0.14)}50%{box-shadow:0 18px 40px rgba(255,197,61,0.22)}100%{box-shadow:0 8px 22px rgba(255,197,61,0.14)}}
+  .btn-demo.pulse{animation:pulseSoft 2.6s ease-in-out infinite}
 
-  /* Colors */
-  .btn-demo{background: linear-gradient(90deg, #ffd54a 0%, #ffc107 100%); color:#0b2b2b}
-  .btn-confirm{background: linear-gradient(90deg,#0d6efd 0%, #0056b3 100%)}
-  .btn-continue{background: linear-gradient(90deg,#2ecc71 0%, #1e7e34 100%)}
+  /* quiz full-screen */
+  .quiz-container{position:fixed; top:0; left:0; width:100%; height:100vh; display:none; align-items:flex-start; justify-content:center; background:linear-gradient(180deg, rgba(243,246,249,0.9), rgba(241,246,255,0.96)); z-index:999; overflow:auto; padding:28px 12px}
+  .quiz-inner{width:100%; max-width:920px; background:white; margin-top:18px; border-radius:14px; padding:26px; box-shadow:0 18px 40px rgba(6,24,70,0.12)}
+  .quiz-top{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px}
+  .quiz-top-left{display:flex; gap:12px; align-items:center}
+  .back-home{background:transparent; border:1px solid rgba(6,24,70,0.08); padding:8px 12px; border-radius:10px; cursor:pointer}
+  .counter{font-weight:700}
 
-  /* Icon left placement */
-  .btn .label{display:inline-block}
+  /* progress bar */
+  .progress-wrap{width:100%; background:rgba(6,24,70,0.06); height:10px; border-radius:999px; overflow:hidden}
+  .progress-bar{height:100%; width:0%; background:linear-gradient(90deg,#81d4fa,#0288d1); transition:width .35s ease}
 
-  /* soft glow on hover */
-  .btn:hover{transform:translateY(-4px); filter:brightness(1.03); box-shadow: 0 14px 36px rgba(6,24,70,0.14)}
-  .btn:active{transform:scale(.98); box-shadow: 0 6px 18px rgba(6,24,70,0.08)}
-
-  /* soft neon edge on hover */
-  .btn-demo:hover::after,
-  .btn-confirm:hover::after,
-  .btn-continue:hover::after{
-    content:""; position:absolute; inset:-1px; border-radius:13px;
-    box-shadow: 0 10px 30px rgba(0,122,255,0.08);
-    pointer-events:none;
-  }
-
-  /* DEMO pulse (soft) */
-  @keyframes pulseSoft {
-    0% { box-shadow: 0 8px 22px rgba(255, 197, 61, 0.18); transform: translateY(0) }
-    50% { box-shadow: 0 18px 40px rgba(255, 197, 61, 0.26); transform: translateY(-3px) }
-    100% { box-shadow: 0 8px 22px rgba(255, 197, 61, 0.18); transform: translateY(0) }
-  }
-  .btn-demo.pulse{
-    animation: pulseSoft 2.6s ease-in-out infinite;
-  }
-
-  /* small helper text */
-  .demo-note{font-size:13px; color:rgba(4,45,98,0.85); margin:8px 0 6px; text-align:center}
-
-  /* Responsive tweaks */
-  @media (max-width:780px){
-    .card-row{flex-direction:column; align-items:center}
-    .qr-card{order:2}
-  }
-
-  /* Quiz styles (kept lean) */
-  .quiz-container{max-width:780px; margin:36px auto; padding:28px; display:none}
-  .question-box{background:#e9f5ff; padding:18px; border-radius:12px; font-size:18px; min-height:80px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(6,24,70,0.06)}
-  .options{margin-top:14px; display:flex; flex-direction:column; gap:10px}
-  .option-btn{padding:12px; border-radius:10px; border:1px solid #d3dbe6; background:white; cursor:pointer; font-size:16px}
+  .question-box{background:#eaf6ff; padding:20px; border-radius:12px; font-size:18px; min-height:110px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(6,24,70,0.06)}
+  .options{margin-top:16px; display:flex; flex-direction:column; gap:10px}
+  .option-btn{padding:14px; border-radius:12px; border:1px solid #d9e6f2; background:white; cursor:pointer; font-size:16px; text-align:left}
   .option-btn.correct{background:linear-gradient(90deg,#d6f3ff,#b3e5fc)}
   .option-btn.incorrect{background:linear-gradient(90deg,#ffd6d6,#ffc9c9)}
   #msg{min-height:24px; font-weight:700; margin-top:12px}
+
+  /* loading */
+  .loader-wrap{display:flex; align-items:center; gap:12px; justify-content:center; padding:24px}
+  .spinner{width:42px; height:42px; border-radius:50%; border:5px solid rgba(6,24,70,0.08); border-top-color: rgba(6,24,70,0.36); animation:spin .9s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* score card */
+  .score-card{padding:18px; border-radius:12px; background:linear-gradient(180deg,#f8fbff,#ffffff); box-shadow:0 8px 22px rgba(6,24,70,0.06); text-align:center}
+  .score-card h2{margin:6px 0}
+  .score-vals{display:flex; justify-content:space-around; gap:12px; margin-top:12px; font-weight:700}
+
+  @media (max-width:800px){
+    .card-row{flex-direction:column; align-items:center}
+    .qr-card{order:2}
+  }
 </style>
 </head>
 <body>
@@ -146,12 +120,12 @@
   <div class="top-hero"></div>
   <div class="flowing-bg"></div>
 
-  <!-- TITLE & SOCIAL -->
+  <!-- TITLE + SOCIAL -->
   <div class="title-container" role="banner" aria-label="Landing header">
-    <div class="title-h1"><span class="title-emoji">🩺</span><span>Nursing Prometric Actual Simulation Test</span></div>
+    <div class="title-h1"><span style="font-size:28px">🩺</span><span>Nursing Prometric Actual Simulation Test</span></div>
     <div class="title-sub">500 tricky & hard-level items — based on Prometric, SMLE & NCLEX</div>
 
-    <div class="social-icons" aria-hidden="false" role="navigation" aria-label="social links">
+    <div class="social-icons" role="navigation" aria-label="social links">
       <a href="tel:+6285399652487" title="Telephone"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="phone"></a>
       <a href="https://wa.me/6285399652487" target="_blank" rel="noopener" title="WhatsApp"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp"></a>
       <a href="mailto:gyoutrain@gmail.com" target="_blank" rel="noopener" title="Email"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="email"></a>
@@ -160,10 +134,10 @@
     </div>
   </div>
 
-  <!-- CARD ROW -->
-  <div class="card-row" role="main">
-    <div class="form-card" aria-labelledby="formTitle">
-      <div id="formTitle" style="font-weight:800; margin-bottom:6px; font-size:16px">Access Panel</div>
+  <!-- CARDS: form + QR -->
+  <div class="card-row" role="main" id="landingPage">
+    <div class="form-card" aria-labelledby="panelTitle">
+      <div id="panelTitle" style="font-weight:800; margin-bottom:6px; font-size:16px">Access Panel</div>
 
       <label for="name">Full Name</label>
       <input id="name" class="input" type="text" placeholder="Enter your full name" aria-label="Full name">
@@ -174,25 +148,20 @@
       <label for="unlock">Unlock Code</label>
       <input id="unlock" class="input" type="text" placeholder="Enter Unlock Code (for full test)" aria-label="Unlock code">
 
-      <div class="demo-note">Try the free demo first — no unlock required. Fill name & WA then click Demo.</div>
+      <div style="font-size:13px; margin-top:8px; color:rgba(4,45,98,0.9)">Try the free demo first — no unlock required. Fill name & WA then click Demo.</div>
 
-      <div class="seg-wrapper">
-        <div class="seg" role="group" aria-label="action buttons">
-          <button id="btnDemo" class="btn btn-demo pulse" aria-label="Demo Test">
-            <span class="icon" aria-hidden="true">🩺</span>
-            <span class="label">Demo</span>
-          </button>
+      <div class="seg" role="group" aria-label="action buttons" style="margin-top:14px">
+        <button id="btnDemo" class="btn btn-demo pulse" aria-label="Demo">
+          <span class="icon" aria-hidden="true">🩺</span><span class="label">Demo</span>
+        </button>
 
-          <button id="btnConfirm" class="btn btn-confirm" aria-label="Confirmation">
-            <span class="icon" aria-hidden="true">⛑️</span>
-            <span class="label">Confirm</span>
-          </button>
+        <button id="btnConfirm" class="btn btn-confirm" aria-label="Confirm">
+          <span class="icon" aria-hidden="true">⛑️</span><span class="label">Confirm</span>
+        </button>
 
-          <button id="btnContinue" class="btn btn-continue" aria-label="Continue Next Test">
-            <span class="icon" aria-hidden="true">💉</span>
-            <span class="label">Continue</span>
-          </button>
-        </div>
+        <button id="btnContinue" class="btn btn-continue" aria-label="Continue">
+          <span class="icon" aria-hidden="true">💉</span><span class="label">Continue</span>
+        </button>
       </div>
     </div>
 
@@ -201,216 +170,374 @@
     </div>
   </div>
 
-  <!-- QUIZ container (hidden until start) -->
-  <section class="quiz-container" id="quizBox" aria-live="polite" aria-hidden="true">
-    <div class="question-box" id="questionText">Question will appear here</div>
-    <div class="options" id="optionsBox">
-      <button class="option-btn" id="optA" onclick="checkAnswer('A')"></button>
-      <button class="option-btn" id="optB" onclick="checkAnswer('B')"></button>
-      <button class="option-btn" id="optC" onclick="checkAnswer('C')"></button>
-      <button class="option-btn" id="optD" onclick="checkAnswer('D')"></button>
+  <!-- QUIZ (FULL SCREEN) -->
+  <div class="quiz-container" id="quizBox" aria-hidden="true">
+    <div class="quiz-inner" role="application" aria-labelledby="quizTitle">
+
+      <div class="quiz-top">
+        <div class="quiz-top-left">
+          <button id="backHome" class="back-home" title="Back to Home">← Home</button>
+          <div style="margin-left:6px;">
+            <div id="questionCounter" class="counter">Q0 / 0</div>
+            <div style="font-size:13px; color:rgba(4,45,98,0.7)" id="questionLabel">Section & Topic</div>
+          </div>
+        </div>
+
+        <div style="width:40%; min-width:160px">
+          <div class="progress-wrap" aria-hidden="false" title="Progress">
+            <div id="progressBar" class="progress-bar" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- loader (shown while questions load) -->
+      <div id="loader" class="loader-wrap" style="display:none">
+        <div class="spinner" role="status" aria-hidden="false"></div>
+        <div style="font-weight:700">Loading Test… Please wait</div>
+      </div>
+
+      <div id="quizContent" style="display:block">
+        <div id="questionBox" class="question-box" style="display:none"></div>
+
+        <div id="optionsArea" class="options" style="display:none">
+          <button id="optA" class="option-btn" onclick="selectOption('A')"></button>
+          <button id="optB" class="option-btn" onclick="selectOption('B')"></button>
+          <button id="optC" class="option-btn" onclick="selectOption('C')"></button>
+          <button id="optD" class="option-btn" onclick="selectOption('D')"></button>
+        </div>
+
+        <div id="msg" aria-live="polite"></div>
+        <div id="scorebox"></div>
+      </div>
+
     </div>
-    <div id="msg" role="status"></div>
-    <div id="scorebox" style="margin-top:14px"></div>
-  </section>
+  </div>
 
   <!-- audio -->
   <audio id="audioCorrect" src="assets/inspiring_correct.mp3" preload="auto"></audio>
   <audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
 
 <script>
-/* ============================
-   Backend URLs (main / demo)
-   ============================ */
+/* =========================
+   Backend URLs
+   ========================= */
 const mainBackend = "https://script.google.com/macros/s/AKfycbyyZ09UJdmwjvPrMVqjEPZmkXa40cyfC-kH4KDhoDTx1vdmhhX5BV1UDi8rjZbGhcDQ/exec";
 const demoBackend = "https://script.google.com/macros/s/AKfycbwvKxmFkKqMAMqqZ49B47AvOHOSy8a4qAebICHYW0_I_SUY2k8i9xh5D1EddAG-OO5n/exec";
 
-/* Utility: simple flash for errors */
-function flash(text){
-  alert(text);
-}
+/* Utility */
+function flash(msg){ alert(msg); }
 
-/* DEMO: opens demo backend (new tab) with minimal params.
-   Demo is free — no unlock required. */
+/* DEMO: open demo backend in new tab, requires name+wa */
 function demoTest(){
   const name = document.getElementById("name").value.trim();
-  const wa   = document.getElementById("wa").value.trim();
-
-  if(!name || !wa){
-    flash("Please fill in Name and WhatsApp number to try the demo.");
-    return;
-  }
-
-  // Open demo backend in a new tab with query params (shows demo test from demo sheet)
+  const wa = document.getElementById("wa").value.trim();
+  if(!name || !wa){ flash("Please fill Name and WhatsApp to try demo."); return; }
   const url = demoBackend + `?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(wa)}`;
   window.open(url, "_blank", "noopener");
 }
 
-/* CONFIRMATION: minimal logging + open WhatsApp to send proof */
+/* CONFIRMATION: log + open WA to admin */
 async function confirmation(){
   const name = document.getElementById("name").value.trim();
-  const wa   = document.getElementById("wa").value.trim();
-
-  if(!name || !wa){
-    flash("Please fill in Name and WhatsApp number before confirmation.");
-    return;
-  }
-
-  // send to main backend for logging (no-cors)
+  const wa = document.getElementById("wa").value.trim();
+  if(!name || !wa){ flash("Please fill Name and WhatsApp to confirm."); return; }
   try{
+    // best-effort logging (mode no-cors may not return)
     await fetch(mainBackend, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "confirmation", name, phone: wa })
+      method:"POST", mode:"no-cors",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ action:"confirmation", name, phone: wa })
     });
-  } catch(e){
-    // network may be blocked by no-cors, ignore but inform
-    console.warn("confirmation log failed (no-cors):", e);
-  }
-
-  // open WA message to admin for payment proof
+  }catch(e){ console.warn("log fail", e); }
   const admin = "6285399652487";
-  const adminMessage = `Payment Confirmation%0AFrom: ${encodeURIComponent(name)}%0AWA: ${encodeURIComponent(wa)}%0A%0APlease share proof QR IDR 50k to get UNLOCK code.`;
-  const waUrl = `https://wa.me/${admin}?text=${adminMessage}`;
-  window.open(waUrl, "_blank", "noopener");
-  flash("Confirmation initiated. Please send the proof to admin via WhatsApp.");
+  const adminMessage = `Payment Confirmation%0AFrom:%20${encodeURIComponent(name)}%0AWA:%20${encodeURIComponent(wa)}%0A%0APlease%20share%20proof%20QR%20IDR%2050k%20to%20get%20UNLOCK%20code.`;
+  window.open(`https://wa.me/${admin}?text=${adminMessage}`, "_blank", "noopener");
+  flash("Confirmation initiated. Please send proof to admin via WhatsApp.");
 }
 
-/* CONTINUE: requires unlock code, checks with main backend then starts quiz */
+/* CONTINUE: validate unlock, then load quiz full-screen */
 async function continueTest(){
   const name = document.getElementById("name").value.trim();
-  const wa   = document.getElementById("wa").value.trim();
+  const wa = document.getElementById("wa").value.trim();
   const unlock = document.getElementById("unlock").value.trim();
-
-  if(!name || !wa || !unlock){
-    flash("Please fill Name, WhatsApp number, and Unlock Code to continue.");
-    return;
-  }
+  if(!name || !wa || !unlock){ flash("Enter Name, WhatsApp, and Unlock Code."); return; }
 
   try{
     const res = await fetch(mainBackend + "?check=" + encodeURIComponent(unlock));
-    // backend returns JSON (must allow CORS)
     const data = await res.json();
-
     if(data.ok){
-      // Hide landing and show quiz
-      document.getElementById("quizBox").style.display = "block";
-      document.getElementById("quizBox").setAttribute("aria-hidden","false");
-      document.querySelector('.card-row').style.display = "none";
-      document.querySelector('.title-container').style.display = "none";
-      startQuiz(unlock);
+      // show loader, then load quiz
+      showQuizLoader(true);
+      // small delay for UX
+      setTimeout(()=> {
+        document.getElementById("landingPage").style.display = "none";
+        document.getElementById("quizBox").style.display = "flex";
+        document.getElementById("quizBox").setAttribute("aria-hidden","false");
+        startQuiz(unlock);
+      }, 700);
     } else {
-      flash("Invalid or expired unlock code. Please check your code or contact admin.");
+      flash("Invalid or expired unlock code.");
     }
-  } catch(err){
+  }catch(err){
     console.error(err);
-    flash("Network error while checking unlock code. Try again.");
+    flash("Network error while checking unlock code.");
   }
 }
 
-/* ============================
-   Quiz logic: load from main backend
-   ============================ */
+/* BACK TO HOME: hide quiz and reset quiz state */
+document.getElementById("backHome").addEventListener("click", ()=>{
+  // hide quiz
+  document.getElementById("quizBox").style.display = "none";
+  document.getElementById("quizBox").setAttribute("aria-hidden","true");
+  // show landing
+  document.getElementById("landingPage").style.display = "flex";
+  // reset quiz variables & UI
+  resetQuiz();
+});
+
+/* =========================
+   Quiz logic & UI helpers
+   ========================= */
 let questions = [];
 let currentIndex = 0;
 let correctCount = 0;
 let incorrectCount = 0;
+let totalQuestions = 0;
 
+function showQuizLoader(show){
+  document.getElementById("loader").style.display = show ? "flex" : "none";
+  document.getElementById("quizContent").style.display = show ? "none" : "block";
+}
+
+/* Start quiz - fetch questions from main backend */
 function startQuiz(authCode){
-  // authCode may be used by backend to return appropriate set
+  // reset
+  questions = [];
+  currentIndex = 0;
+  correctCount = 0;
+  incorrectCount = 0;
+  totalQuestions = 0;
+  updateProgress(0,0);
+
+  showQuizLoader(true);
+  document.getElementById("questionBox").style.display = "none";
+  document.getElementById("optionsArea").style.display = "none";
+  document.getElementById("msg").textContent = "";
+
   fetch(mainBackend + "?questions=true")
     .then(r => r.json())
     .then(data => {
-      if(!Array.isArray(data) || data.length===0){
-        flash("No questions returned from server.");
+      if(!Array.isArray(data) || data.length === 0){
+        showQuizLoader(false);
+        flash("No questions available from server.");
         return;
       }
       questions = data;
-      currentIndex = 0;
-      correctCount = 0;
-      incorrectCount = 0;
+      totalQuestions = questions.length;
+      // hide loader, show quiz content
+      showQuizLoader(false);
+      document.getElementById("questionBox").style.display = "block";
+      document.getElementById("optionsArea").style.display = "block";
       loadQuestion();
     })
     .catch(e => {
       console.error(e);
-      flash("Failed to load questions: " + e);
+      showQuizLoader(false);
+      flash("Failed to load questions.");
     });
 }
 
 function loadQuestion(){
-  if(!questions[currentIndex]) {
+  if(currentIndex >= totalQuestions){
     showScore();
     return;
   }
   const q = questions[currentIndex];
-  document.getElementById("questionText").textContent = `Q${q.number}: ${q.question}`;
-  document.getElementById("optA").textContent = "A. " + (q.options[0]||"");
-  document.getElementById("optB").textContent = "B. " + (q.options[1]||"");
-  document.getElementById("optC").textContent = "C. " + (q.options[2]||"");
-  document.getElementById("optD").textContent = "D. " + (q.options[3]||"");
-  // clear styles
-  ["optA","optB","optC","optD"].forEach(id => {
+  // question counter + label
+  document.getElementById("questionCounter").textContent = `Q${currentIndex+1} / ${totalQuestions}`;
+  document.getElementById("questionLabel").textContent = `${q.section || 'General'} — ${q.topic || ''}`;
+  // progress
+  updateProgress(currentIndex, totalQuestions);
+
+  // question text
+  const qText = `Q${q.number || (currentIndex+1)}: ${q.question || ''}`;
+  document.getElementById("questionBox").textContent = qText;
+
+  // options
+  document.getElementById("optA").textContent = `A. ${q.options && q.options[0] ? q.options[0] : ''}`;
+  document.getElementById("optB").textContent = `B. ${q.options && q.options[1] ? q.options[1] : ''}`;
+  document.getElementById("optC").textContent = `C. ${q.options && q.options[2] ? q.options[2] : ''}`;
+  document.getElementById("optD").textContent = `D. ${q.options && q.options[3] ? q.options[3] : ''}`;
+
+  // clear classes and enable
+  ["optA","optB","optC","optD"].forEach(id=>{
     const el = document.getElementById(id);
     el.classList.remove("correct","incorrect");
     el.disabled = false;
   });
+
   document.getElementById("msg").textContent = "";
 }
 
-function checkAnswer(selected){
+function selectOption(letter){
+  // prevent double clicks
+  const btnId = 'opt' + letter;
+  const btn = document.getElementById(btnId);
+  if(btn.disabled) return;
+
   const current = questions[currentIndex];
-  if(!current) return;
-  const correct = current.correct; // expected format 'A' etc
-  ["optA","optB","optC","optD"].forEach(id=>{
-    const el = document.getElementById(id);
+  const correct = current.correct; // expected 'A' / 'B' etc
+  // reveal correct & selected
+  ["A","B","C","D"].forEach(l=>{
+    const el = document.getElementById('opt' + l);
     el.disabled = true;
-    if(id.toUpperCase().endsWith(correct)) el.classList.add("correct");
-    if(id.toUpperCase().endsWith(selected) && selected!==correct) el.classList.add("incorrect");
+    if(l === correct) el.classList.add('correct');
+    if(l === letter && l !== correct) el.classList.add('incorrect');
   });
-  if(selected === correct){
+
+  if(letter === correct){
     correctCount++;
-    const audioCorrect = document.getElementById("audioCorrect");
-    audioCorrect && (audioCorrect.currentTime = 0) && audioCorrect.play();
+    playAudio('audioCorrect');
     document.getElementById("msg").textContent = "✅ Correct!";
   } else {
     incorrectCount++;
-    const audioWrong = document.getElementById("audioWrong");
-    audioWrong && (audioWrong.currentTime = 0) && audioWrong.play();
-    document.getElementById("msg").textContent = `❌ Wrong! Correct: ${correct}\n${current.rationale||''}`;
+    playAudio('audioWrong');
+    // show rationale if available
+    const r = current.rationale ? `\n${current.rationale}` : '';
+    document.getElementById("msg").textContent = `❌ Wrong! Correct: ${correct}${r}`;
   }
+
   currentIndex++;
-  setTimeout(()=> {
-    if(currentIndex < questions.length) loadQuestion();
+  updateProgress(currentIndex, totalQuestions);
+
+  setTimeout(()=>{
+    if(currentIndex < totalQuestions) loadQuestion();
     else showScore();
-  }, 1200);
+  }, 1100);
+}
+
+function updateProgress(index, total){
+  const pct = total > 0 ? Math.round((index/total) * 100) : 0;
+  document.getElementById("progressBar").style.width = pct + "%";
 }
 
 function showScore(){
-  const total = questions.length || 1;
+  const total = totalQuestions || 1;
   const score = Math.round((correctCount/total)*100);
   const status = score >= 70 ? "PASS" : "NOT PASS";
-  document.getElementById("quizBox").innerHTML = `
-    <div style="padding:18px; border-radius:12px; box-shadow:0 8px 22px rgba(0,0,0,0.06); background:#fff">
+
+  document.getElementById("quizBox").scrollTop = 0;
+  document.getElementById("quizBox").style.alignItems = "center";
+
+  document.getElementById("quizBox").querySelector(".quiz-inner").innerHTML = `
+    <div class="score-card">
       <h2>Test Completed</h2>
-      <p>Correct: ${correctCount} / ${total}</p>
-      <p>Incorrect: ${incorrectCount} / ${total}</p>
-      <p>Score: ${score}%</p>
-      <p>Status: ${status}</p>
+      <div style="font-size:20px; font-weight:800; margin-top:6px">${score}% — ${status}</div>
+      <div class="score-vals">
+        <div>✅ Correct<br><strong>${correctCount}</strong></div>
+        <div>❌ Incorrect<br><strong>${incorrectCount}</strong></div>
+        <div>📚 Total<br><strong>${total}</strong></div>
+      </div>
+      <div style="margin-top:16px">
+        <button id="btnBackToHomeAfterScore" class="back-home" style="margin-right:10px">Back to Home</button>
+        <button id="btnRetry" class="back-home" style="background:var(--accent-blue); color:white; border:none">Retry</button>
+      </div>
     </div>
   `;
+
+  // wire up buttons on score card
+  document.getElementById("btnBackToHomeAfterScore").addEventListener("click", ()=>{
+    // return to landing (reset)
+    resetQuiz();
+    document.getElementById("quizBox").style.display = "none";
+    document.getElementById("landingPage").style.display = "flex";
+    // restore quiz inner to original markup (so back button works)
+    restoreQuizInner();
+  });
+
+  document.getElementById("btnRetry").addEventListener("click", ()=>{
+    // restart by reloading questions
+    restoreQuizInner(() => {
+      // start again
+      startQuiz();
+    });
+  });
 }
 
-/* Wire up button listeners (improve accessibility) */
-document.getElementById('btnDemo').addEventListener('click', demoTest);
+/* reset quiz state and UI helper */
+function resetQuiz(){
+  questions = []; currentIndex = 0; correctCount = 0; incorrectCount = 0; totalQuestions = 0;
+  document.getElementById("progressBar").style.width = "0%";
+  document.getElementById("questionCounter").textContent = "Q0 / 0";
+  document.getElementById("questionLabel").textContent = "";
+  document.getElementById("msg").textContent = "";
+}
+
+/* restore quiz-inner to the original structure after score */
+function restoreQuizInner(callback){
+  const quizInner = document.querySelector(".quiz-inner");
+  quizInner.innerHTML = `
+    <div class="quiz-top">
+      <div class="quiz-top-left">
+        <button id="backHome" class="back-home" title="Back to Home">← Home</button>
+        <div style="margin-left:6px;">
+          <div id="questionCounter" class="counter">Q0 / 0</div>
+          <div style="font-size:13px; color:rgba(4,45,98,0.7)" id="questionLabel">Section & Topic</div>
+        </div>
+      </div>
+      <div style="width:40%; min-width:160px">
+        <div class="progress-wrap" title="Progress">
+          <div id="progressBar" class="progress-bar" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loader" class="loader-wrap" style="display:none">
+      <div class="spinner" role="status"></div>
+      <div style="font-weight:700">Loading Test… Please wait</div>
+    </div>
+
+    <div id="quizContent" style="display:block">
+      <div id="questionBox" class="question-box" style="display:none"></div>
+
+      <div id="optionsArea" class="options" style="display:none">
+        <button id="optA" class="option-btn" onclick="selectOption('A')"></button>
+        <button id="optB" class="option-btn" onclick="selectOption('B')"></button>
+        <button id="optC" class="option-btn" onclick="selectOption('C')"></button>
+        <button id="optD" class="option-btn" onclick="selectOption('D')"></button>
+      </div>
+
+      <div id="msg" aria-live="polite"></div>
+      <div id="scorebox"></div>
+    </div>
+  `;
+  // rebind backHome
+  document.getElementById("backHome").addEventListener("click", ()=>{
+    document.getElementById("quizBox").style.display = "none";
+    document.getElementById("landingPage").style.display = "flex";
+    resetQuiz();
+  });
+  if(typeof callback === "function") callback();
+}
+
+/* play audio safely */
+function playAudio(id){
+  try{
+    const a = document.getElementById(id);
+    if(a){ a.currentTime = 0; a.play().catch(()=>{}); }
+  }catch(e){console.warn(e)}
+}
+
+/* wire initial button listeners */
+document.getElementById('btnDemo').addEventListener('click', ()=>{ document.getElementById('btnDemo').classList.remove('pulse'); demoTest(); setTimeout(()=>document.getElementById('btnDemo').classList.add('pulse'), 3500); });
 document.getElementById('btnConfirm').addEventListener('click', confirmation);
 document.getElementById('btnContinue').addEventListener('click', continueTest);
-
-/* Stop demo pulse after first click (gentle UX) */
-document.getElementById('btnDemo').addEventListener('click', function(){
-  this.classList.remove('pulse');
-  setTimeout(()=> this.classList.add('pulse'), 4000); // re-enable after a short rest
+document.getElementById('backHome').addEventListener('click', ()=>{
+  document.getElementById("quizBox").style.display = "none";
+  document.getElementById("landingPage").style.display = "flex";
+  resetQuiz();
 });
+
 </script>
 </body>
 </html>
