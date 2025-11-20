@@ -106,5 +106,21 @@
   </div>
 </div>
 
+<script>
+function demoTest(){ window.location.href = 'demo.html'; }
+function confirmation(){
+  const n=document.getElementById('name').value.trim();
+  const w=document.getElementById('wa').value.trim();
+  if(!n||!w){ alert('Please fill in Name and WhatsApp number.'); return; }
+  const msg = encodeURIComponent(`Payment Confirmed\nName: ${n}\nWA: ${w}`);
+  window.open(`https://wa.me/6285399652487?text=${msg}`,'_blank');
+  alert('Payment confirmation sent. Admin will provide your unlock code.');
+}
+function continueTest(){
+  const code=document.getElementById('unlock').value.trim();
+  if(!code){ alert('Please enter unlock code.'); return; }
+  window.location.href = `main-test.html?code=${code}`;
+}
+</script>
 </body>
 </html>
