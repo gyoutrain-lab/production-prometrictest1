@@ -70,32 +70,62 @@
     box-shadow: 0 6px 18px rgba(0, 140, 255, 0.55);
   }
 
+  /* ⭐ FORM & BUTTONS iOS17 GLASS SEGMENTED ⭐ */
   .form-container {
     position: relative;
-    max-width:150px;
-    margin:0;
-    margin-top:-10px;
-    padding:15px;
-    background:white;
-    border-radius:12px;
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
-    text-align:left;
-    z-index:1;
-    float:left;
+    margin:20px auto 0 auto;
+    padding:20px;
+    max-width:360px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius:20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    text-align:center;
+    z-index:2;
   }
-  .form-container label { font-weight:bold; display:block; margin-top:10px; }
-  .form-container input { width:100%; padding:8px; margin-top:5px; border-radius:6px; border:1px solid #bbb; font-size:14px; }
-  .form-container button { width:100%; margin-top:10px; padding:10px; font-size:14px; border:none; border-radius:6px; cursor:pointer; }
-  .demo-btn { background:gold; color:#000; }
-  .confirm-btn { background:#0056b3; color:#fff; }
-  .continue-btn { background:green; color:#fff; }
+  .form-container label { font-weight:bold; display:block; margin-top:10px; text-align:left; }
+  .form-container input {
+    width:100%; padding:10px; margin-top:5px; border-radius:12px; border:1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.35); backdrop-filter: blur(6px);
+    font-size:15px;
+    outline:none;
+    transition: all 0.3s ease;
+  }
+  .form-container input:focus {
+    border:1px solid #0056b3;
+    box-shadow:0 0 10px rgba(0,86,179,0.3);
+  }
+
+  /* SEGMENTED BUTTON BAR */
+  .button-segment {
+    display:flex; justify-content:space-between; margin-top:15px;
+    gap:10px;
+  }
+  .button-segment button {
+    flex:1;
+    padding:12px 0;
+    border:none;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:14px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    color:#fff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .demo-btn { background: rgba(255,215,0,0.85); color:#000; }
+  .demo-btn:hover { background: rgba(255,215,0,1); }
+  .confirm-btn { background: rgba(0,86,179,0.85); }
+  .confirm-btn:hover { background: rgba(0,86,179,1); }
+  .continue-btn { background: rgba(0,128,0,0.85); }
+  .continue-btn:hover { background: rgba(0,128,0,1); }
 
   .qr {
     position: relative;
-    float:right;
+    margin-top:15px;
     width:150px;
-    margin-top:-10px;
-    z-index:1;
   }
 
   .quiz-container {
@@ -107,7 +137,6 @@
     box-shadow:0 0 15px rgba(0,0,0,0.15);
     display:none;
     text-align:center;
-    clear:both;
   }
 
   .question-container {
@@ -156,7 +185,7 @@
   }
 
   #msg { font-weight:bold; margin:15px 0; min-height:24px; }
-  #scorebox { margin-top:30px; font-size:18px; clear:both; }
+  #scorebox { margin-top:30px; font-size:18px; }
 </style>
 </head>
 <body>
@@ -190,12 +219,14 @@
     <label for="unlock">Unlock Code</label>
     <input type="text" id="unlock" placeholder="Enter Unlock Code">
 
-    <button class="demo-btn" onclick="demoTest()">Demo Test (Free)</button>
-    <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
-    <button class="continue-btn" onclick="continueTest()">Continue Next Test</button>
-  </div>
+    <div class="button-segment">
+      <button class="demo-btn" onclick="demoTest()">Demo Test</button>
+      <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
+      <button class="continue-btn" onclick="continueTest()">Continue</button>
+    </div>
 
-  <img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
+    <img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
+  </div>
 </div>
 
 <!-- QUIZ PAGE -->
