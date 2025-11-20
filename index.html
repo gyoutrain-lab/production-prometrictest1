@@ -1,3 +1,4 @@
+<!-- Updated HTML with social icons centered under title and buttons moved horizontally -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,57 +14,93 @@
 
 <style>
   body { margin:0; font-family: Arial, sans-serif; background:#f7f9fc; text-align:center; overflow-x:hidden; }
+
   #landingPage { width:100%; }
 
   .top-image {
     width:100%; height:50vh;
-    background:url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
+    background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat;
   }
+
   .flowing-bg {
-    position:relative; width:100%; height:50vh;
-    background:url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom;
-    opacity:0.15; filter:blur(2px); background-size:cover;
-    animation:flowWave 30s linear infinite; z-index:0;
+    position: relative;
+    width:100%; height:50vh;
+    background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom;
+    opacity:0.15; filter: blur(2px);
+    background-size: cover;
+    animation: flowWave 30s linear infinite;
+    z-index:0;
   }
+
   @keyframes flowWave {
-    0% { background-position:0 bottom; }
-    50% { background-position:500px bottom; }
-    100% { background-position:0 bottom; }
+    0% { background-position: 0 bottom; }
+    50% { background-position: 500px bottom; }
+    100% { background-position: 0 bottom; }
   }
 
   .title-container {
-    position:relative; margin-top:-45vh; text-align:center; color:#042d62; z-index:2;
+    position: relative;
+    margin-top:-45vh;
+    text-align:center;
+    color:#042d62;
+    z-index:2;
   }
   .title-container h1 { font-size:28px; margin:0; }
   .title-container h3 { font-size:18px; margin:5px 0; }
 
+  /* Social Icons Centered */
   .social-icons {
-    margin-top:15px; text-align:center;
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:18px;
   }
   .social-icons img {
-    width:40px; height:40px; margin:0 6px;
+    width:36px;
   }
 
-  .form-container {
-    position:relative; max-width:150px;
-    margin:0; margin-top:-10px; padding:15px;
-    background:white; border-radius:12px;
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
-    text-align:left; z-index:1; float:left;
+  /* Buttons Cluster */
+  .button-row {
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
   }
-
-  .button-bar { width:100%; text-align:center; margin-top:25px; display:flex; justify-content:center; gap:20px; }
-  .button-bar button { padding:10px 20px; border:none; border-radius:6px; cursor:pointer; font-size:14px; white-space:nowrap; }
+  .button-row button {
+    padding:10px 16px;
+    font-size:14px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+  }
   .demo-btn { background:gold; }
   .confirm-btn { background:#0056b3; color:white; }
   .continue-btn { background:green; color:white; }
 
+  /* Hide original form */
+  .form-container { display:none; }
+
   .qr {
-    position:relative; float:right; width:150px; margin-top:-10px; z-index:1;
+    position: relative;
+    width:150px;
+    margin-top:20px;
+  }
+
+  .quiz-container {
+    max-width:720px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+    display:none;
+    text-align:center;
+    clear:both;
   }
 </style>
 </head>
 <body>
+
 <div id="landingPage">
   <div class="top-image"></div>
   <div class="flowing-bg"></div>
@@ -72,6 +109,7 @@
     <h1>Nursing Prometric Actual Simulation Test</h1>
     <h3>500 test items with tricky & hard level with rationale, based on Prometric/SMLE & NCLEX</h3>
 
+    <!-- Social Icons Centered Under Title -->
     <div class="social-icons">
       <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"></a>
       <a href="https://wa.me/6285399652487" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
@@ -80,49 +118,27 @@
       <a href="https://www.instagram.com/etkyogya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
     </div>
 
-  <div class="form-container" id="landingForm">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" placeholder="Enter your full name">
-
-    <label for="wa">WhatsApp Number</label>
-    <input type="text" id="wa" placeholder="e.g. 6285399652487">
-
-    <label for="unlock">Unlock Code</label>
-    <input type="text" id="unlock" placeholder="Enter Unlock Code">
+    <!-- Horizontal Buttons -->
+    <div class="button-row">
+      <button class="demo-btn" onclick="demoTest()">Demo Test (Free)</button>
+      <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
+      <button class="continue-btn" onclick="continueTest()">Continue Next Test</button>
+    </div>
   </div>
 
   <img src="https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/dana_qr.png?raw=true" class="qr">
-
-  <div class="button-bar">
-    <button class="demo-btn" onclick="demoTest()">Demo Test (Free)</button>
-    <button class="confirm-btn" onclick="confirmation()">Confirmation</button>
-    <button class="continue-btn" onclick="continueTest()">Continue Next Test</button>
-  </div>
 </div>
 
+<!-- QUIZ PAGE -->
+<div class="quiz-container" id="quizBox"></div>
+
+<!-- Audio -->
+<audio id="audioCorrect" src="assets/inspiring_correct.mp3" preload="auto"></audio>
+<audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
+
 <script>
-function demoTest(){
-  // Ensure correct path to demo test
-  window.location.href = './demo.html';
-}
-
-function confirmation(){
-  const n=document.getElementById('name').value.trim();
-  const w=document.getElementById('wa').value.trim();
-  if(!n||!w){ alert('Please fill in Name and WhatsApp number.'); return; }
-  const msg = encodeURIComponent(`Payment Confirmed
-Name: ${n}
-WA: ${w}`);
-  window.open(`https://wa.me/6285399652487?text=${msg}`,'_blank');
-  alert('Payment confirmation sent. Admin will provide your unlock code.');
-}
-
-function continueTest(){
-  const code=document.getElementById('unlock').value.trim();
-  if(!code){ alert('Please enter unlock code.'); return; }
-  // Ensure correct path to full test
-  window.location.href = `./main-test.html?code=${code}`;
-}
+function demoTest(){window.open("https://script.google.com/macros/s/AKfycbzXkvUUIdoxewDYasvDY0ifSq1Ezki3hTfs0-5RHTREZF5eyJ1HFN52PWoOELGE4lsM/exec","_blank");}
 </script>
+
 </body>
 </html>
