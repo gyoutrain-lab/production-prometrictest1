@@ -20,16 +20,16 @@
     --accent-blue:#0d6efd;
     --accent-green:#28a745;
     --accent-gold:#ffd54a;
-    --quiz-blue:#e6f6ff;
-    --quiz-blue-glow:#9aeaff;
-    --quiz-red-glow:#ffc1c1;
+    --quiz-blue:#cfeeff;
+    --quiz-blue-glow: #9aeaff;
+    --quiz-red-glow: #ffc1c1;
   }
 
   *{box-sizing:border-box}
   html,body{height:100%; margin:0; font-family: "Inter", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased;}
   body{background:var(--bg); color:var(--text); text-align:center; overflow-x:hidden; padding-bottom:40px;}
 
-  /* ----------------- original landing styles (kept unchanged) ----------------- */
+  /* HERO & landing unchanged (kept same as original) */
   .top-hero{width:100%; height:48vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') center/cover no-repeat; position:relative;}
   .flowing-bg{position:relative; width:100%; height:48vh; background: url('https://github.com/gyoutrain-lab/production-prometrictest1/blob/main/assets/icon17%20(1).jpg?raw=true') repeat-x bottom; opacity:0.14; filter: blur(2px); background-size:cover; animation:flowWave 32s linear infinite; z-index:0}
   @keyframes flowWave{0%{background-position:0 bottom}50%{background-position:520px bottom}100%{background-position:0 bottom}}
@@ -77,132 +77,96 @@
   @keyframes pulseSoft{0%{box-shadow:0 8px 22px rgba(255,197,61,0.14)}50%{box-shadow:0 18px 40px rgba(255,197,61,0.22)}100%{box-shadow:0 8px 22px rgba(255,197,61,0.14)}}
   .btn-demo.pulse{animation:pulseSoft 2.6s ease-in-out infinite}
 
-  /* ----------------- QUIZ SECTION CHANGES (ONLY THIS BLOCK) ----------------- */
+  /* =================== QUIZ UPGRADES (ONLY THIS BLOCK CHANGED) =================== */
 
-  /* quiz full-screen: keep original container */
+  /* quiz full-screen container (kept original behavior) */
   .quiz-container{position:fixed; top:0; left:0; width:100%; height:100vh; display:none; align-items:flex-start; justify-content:center; background:linear-gradient(180deg, rgba(243,246,249,0.95), rgba(241,246,255,0.98)); z-index:999; overflow:auto; padding:28px 12px}
-  .quiz-inner{width:100%; max-width:920px; background:white; margin-top:18px; border-radius:14px; padding:26px; box-shadow:0 18px 40px rgba(6,24,70,0.12); position:relative}
+  .quiz-inner{width:100%; max-width:920px; background:white; margin-top:18px; border-radius:14px; padding:26px; box-shadow:0 18px 40px rgba(6,24,70,0.12)}
   .quiz-top{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px}
   .quiz-top-left{display:flex; gap:12px; align-items:center}
   .back-home{background:transparent; border:1px solid rgba(6,24,70,0.08); padding:8px 12px; border-radius:10px; cursor:pointer}
   .counter{font-weight:700}
 
+  /* progress bar (unchanged) */
   .progress-wrap{width:100%; background:rgba(6,24,70,0.06); height:10px; border-radius:999px; overflow:hidden}
   .progress-bar{height:100%; width:0%; background:linear-gradient(90deg,#81d4fa,#0288d1); transition:width .35s ease}
 
-  /* question container large, left-aligned, embossed blue */
+  /* === QUESTION CONTAINER - BIG, BOLD, EMBOSSED BLUE, LEFT-ALIGNED === */
   .question-box{
     background: linear-gradient(180deg, var(--quiz-blue), #e6f6ff);
     padding:28px 22px;
     border-radius:14px;
-    font-size:2.2rem;       /* large */
+    font-size:2.4rem;       /* ~3x bigger than prior 18px */
     font-weight:800;
     min-height:140px;
-    text-align:left;
-    color: #012947;
-    box-shadow: 0 10px 28px rgba(138,186,255,0.14), inset 0 2px 8px rgba(255,255,255,0.6);
+    text-align:left;        /* left margin per your request */
+    color: #024;
+    box-shadow: 0 10px 28px rgba(138,186,255,0.18), inset 0 2px 8px rgba(255,255,255,0.6);
     margin-bottom:18px;
     line-height:1.18;
   }
 
-  /* options - left aligned with spacing */
-  .options{ margin-top:10px; display:flex; flex-direction:column; gap:18px; align-items:stretch; }
+  /* === OPTIONS - each in its own container, larger spacing, left aligned === */
+  .options{ margin-top:10px; display:flex; flex-direction:column; gap:20px; }
   .option-btn{
-    padding:20px 18px;
-    border-radius:12px;
+    padding:22px 18px;
+    border-radius:14px;
     border:1px solid rgba(13,110,253,0.08);
     background: #fff;
-    font-size:1.9rem;
+    font-size:1.9rem;      /* ~3x bigger than prior 16px */
     text-align:left;
     cursor:pointer;
     transition: transform .18s, box-shadow .18s;
     box-shadow: 0 6px 18px rgba(6,24,70,0.04);
-    user-select:none;
   }
   .option-btn:active{ transform: translateY(1px) }
 
-  /* correct styling */
+  /* correct: shiny embossing light blue + glow */
   .option-btn.correct{
     background: linear-gradient(90deg, #d6f3ff, #b3e5fc);
     border-color: rgba(30,150,255,0.8);
-    box-shadow: 0 12px 30px rgba(110,200,255,0.22);
-    outline: 2px solid rgba(110,200,255,0.06);
+    box-shadow: 0 12px 30px rgba(110,200,255,0.25);
+    outline: 2px solid rgba(110,200,255,0.08);
   }
 
-  /* incorrect styling */
+  /* incorrect: shiny embossing light red, no sound */
   .option-btn.incorrect{
     background: linear-gradient(90deg, #ffd6d6, #ffc9c9);
     border-color: rgba(255,110,110,0.9);
-    box-shadow: 0 12px 30px rgba(255,160,160,0.12);
+    box-shadow: 0 12px 30px rgba(255,160,160,0.18);
     outline: 2px solid rgba(255,110,110,0.06);
   }
 
-  /* rationale: light blue text below options */
+  /* rationale outside container at bottom, dark blue text */
   #msg {
     margin-top:18px;
     display:block;
-    color:#0b5aa6;        /* light/dark blue */
+    color:#002d72;
     font-size:1.35rem;
     font-weight:700;
     text-align:left;
-    padding:10px 8px 0 8px;
+    padding:14px 12px;
+    background:transparent;
     min-height:44px;
   }
 
-  /* bottom nav (Back / Continue) fixed inside quiz-inner */
-  .quiz-nav {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:20px;
-    gap:12px;
-  }
-  .btn-back,
-  .btn-continue {
-    padding:12px 18px;
-    border-radius:12px;
-    font-weight:800;
-    font-size:1rem;
-    color:#fff;
-    border:none;
-    cursor:pointer;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-  }
-  .btn-back {
-    background: linear-gradient(180deg,#0b78d6,#035bb3); /* blue emboss */
-  }
-  .btn-continue {
-    background: linear-gradient(180deg,#0b78d6,#035bb3); /* same blue emboss */
-  }
-  .btn-continue[disabled],
-  .btn-back[disabled] {
-    opacity:0.5;
-    cursor:not-allowed;
-  }
-
-  /* top-right status (token/timer/percent) kept in header area of quiz-inner */
+  /* top-right status: timer + percent */
   .status-box{
-    display:flex; gap:10px; align-items:center; justify-content:flex-end;
+    display:flex; gap:12px; align-items:center; justify-content:flex-end;
+    min-width:180px; font-weight:700; color:#073;
   }
-  .status-item{ font-size:0.95rem; color:#012947; background: rgba(2,77,130,0.04); padding:8px 10px; border-radius:8px; font-weight:700; }
+  .status-item{ font-size:0.95rem; color:#024; background: rgba(2,77,130,0.06); padding:8px 10px; border-radius:8px; }
 
-  /* small screens adjustments */
+  /* small screens: reduce sizes but stay large enough */
   @media (max-width:600px){
     .question-box{ font-size:1.6rem; padding:18px; min-height:120px }
-    .option-btn{ font-size:1.25rem; padding:14px }
+    .option-btn{ font-size:1.3rem; padding:16px }
     #msg{ font-size:1.05rem }
-    .btn-back, .btn-continue{ font-size:0.95rem; padding:10px 14px }
   }
 
-  /* anti-copy for quiz area only */
-  .quiz-inner, .question-box, .options, .option-btn, #msg {
-    -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
-    -webkit-touch-callout: none;
-  }
+  /* =================== END QUIZ CHANGES =================== */
 
-  /* ----------------- end quiz changes ----------------- */
-
-  /* loader */
+  /* loading spinner */
   .loader-wrap{display:flex; align-items:center; gap:12px; justify-content:center; padding:24px}
   .spinner{width:42px; height:42px; border-radius:50%; border:5px solid rgba(6,24,70,0.08); border-top-color: rgba(6,24,70,0.36); animation:spin .9s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
@@ -211,6 +175,7 @@
   .score-card{padding:18px; border-radius:12px; background:linear-gradient(180deg,#f8fbff,#ffffff); box-shadow:0 8px 22px rgba(6,24,70,0.06); text-align:center}
   .score-card h2{margin:6px 0}
   .score-vals{display:flex; justify-content:space-around; gap:12px; margin-top:12px; font-weight:700}
+
 </style>
 </head>
 <body>
@@ -233,7 +198,7 @@
     </div>
   </div>
 
-  <!-- CARDS: form + QR (unchanged) -->
+  <!-- CARDS: form + QR -->
   <div class="card-row" role="main" id="landingPage">
     <div class="form-card" aria-labelledby="panelTitle">
       <div id="panelTitle" style="font-weight:800; margin-bottom:6px; font-size:16px">Access Panel</div>
@@ -284,7 +249,7 @@
 
         <div style="width:40%; min-width:160px; display:flex; align-items:center; justify-content:flex-end;">
           <div class="status-box" aria-hidden="false">
-            <div class="status-item" id="timer">Time: 500:00</div>
+            <div class="status-item" id="timer">Time: 00:00</div>
             <div class="status-item" id="percent">Correct: 0%</div>
           </div>
         </div>
@@ -307,20 +272,13 @@
         </div>
 
         <div id="msg" aria-live="polite"></div>
-
-        <div class="quiz-nav" aria-hidden="false">
-          <button id="btnBack" class="btn-back" title="Back" disabled>Back</button>
-          <div style="flex:1"></div>
-          <button id="btnContinueNav" class="btn-continue" title="Continue" disabled>Continue</button>
-        </div>
-
         <div id="scorebox"></div>
       </div>
 
     </div>
   </div>
 
-  <!-- audio (unchanged) -->
+  <!-- audio -->
   <audio id="audioCorrect" src="assets/inspiring_correct.mp3" preload="auto"></audio>
   <audio id="audioWrong" src="assets/wrong.mp3" preload="auto"></audio>
 
@@ -334,7 +292,7 @@ const demoBackend = "https://script.google.com/macros/s/AKfycbwvKxmFkKqMAMqqZ49B
 /* Utility */
 function flash(msg){ alert(msg); }
 
-/* DEMO & CONFIRM (unchanged handlers) */
+/* DEMO: open demo backend in new tab, requires name+wa */
 function demoTest(){
   const name = document.getElementById("name").value.trim();
   const wa = document.getElementById("wa").value.trim();
@@ -343,11 +301,13 @@ function demoTest(){
   window.open(url, "_blank", "noopener");
 }
 
+/* CONFIRMATION: log + open WA to admin */
 async function confirmation(){
   const name = document.getElementById("name").value.trim();
   const wa = document.getElementById("wa").value.trim();
   if(!name || !wa){ flash("Please fill Name and WhatsApp to confirm."); return; }
   try{
+    // best-effort logging (mode no-cors may not return)
     await fetch(mainBackend, {
       method:"POST", mode:"no-cors",
       headers:{"Content-Type":"application/json"},
@@ -360,7 +320,7 @@ async function confirmation(){
   flash("Confirmation initiated. Please send proof to admin via WhatsApp.");
 }
 
-/* CONTINUE: validate unlock, then load quiz full-screen (unchanged entrance logic) */
+/* CONTINUE: validate unlock, then load quiz full-screen */
 async function continueTest(){
   const name = document.getElementById("name").value.trim();
   const wa = document.getElementById("wa").value.trim();
@@ -389,34 +349,34 @@ async function continueTest(){
   }
 }
 
-/* BACK TO HOME */
+/* BACK TO HOME: hide quiz and reset quiz state */
 document.getElementById("backHome").addEventListener("click", ()=>{
+  // hide quiz
   document.getElementById("quizBox").style.display = "none";
   document.getElementById("quizBox").setAttribute("aria-hidden","true");
+  // show landing
   document.getElementById("landingPage").style.display = "flex";
+  // reset quiz variables & UI
   resetQuiz();
 });
 
 /* =========================
-   QUIZ logic & UI helpers (UPDATED)
+   Quiz logic & UI helpers (UPDATED)
    ========================= */
-
 let questions = [];
 let currentIndex = 0;
 let correctCount = 0;
 let incorrectCount = 0;
 let totalQuestions = 0;
-
-/* Countdown timer (500 minutes) */
-let countdownSeconds = 500 * 60; // 500 minutes in seconds
-let countdownInterval = null;
+let seconds = 0;
+let timerInterval = null;
 
 function showQuizLoader(show){
   document.getElementById("loader").style.display = show ? "flex" : "none";
   document.getElementById("quizContent").style.display = show ? "none" : "block";
 }
 
-/* Start quiz - fetch questions from main backend */
+/* Start quiz - fetch questions from main backend (keeps original backend call) */
 function startQuiz(authCode){
   // reset
   questions = [];
@@ -424,9 +384,9 @@ function startQuiz(authCode){
   correctCount = 0;
   incorrectCount = 0;
   totalQuestions = 0;
-  countdownSeconds = 500 * 60;
-  clearInterval(countdownInterval);
-  updateTimerDisplay(countdownSeconds);
+  seconds = 0;
+  updateProgress(0,0);
+  updateTimerDisplay(0);
   updatePercentDisplay();
 
   showQuizLoader(true);
@@ -434,6 +394,7 @@ function startQuiz(authCode){
   document.getElementById("optionsArea").style.display = "none";
   document.getElementById("msg").textContent = "";
 
+  // fetch the question set
   fetch(mainBackend + "?questions=true")
     .then(r => r.json())
     .then(data => {
@@ -444,10 +405,11 @@ function startQuiz(authCode){
       }
       questions = data;
       totalQuestions = questions.length;
+      // hide loader, show quiz content
       showQuizLoader(false);
       document.getElementById("questionBox").style.display = "block";
       document.getElementById("optionsArea").style.display = "block";
-      startCountdown();
+      startTimer();
       loadQuestion();
     })
     .catch(e => {
@@ -457,50 +419,46 @@ function startQuiz(authCode){
     });
 }
 
-/* ---------- Countdown timer functions ---------- */
-function startCountdown(){
-  clearInterval(countdownInterval);
-  updateTimerDisplay(countdownSeconds);
-  countdownInterval = setInterval(()=>{
-    countdownSeconds--;
-    if(countdownSeconds <= 0){
-      clearInterval(countdownInterval);
-      updateTimerDisplay(0);
-      // force finish
-      finishDueToTimeout();
-      return;
-    }
-    updateTimerDisplay(countdownSeconds);
-  }, 1000);
+/* Timer */
+function startTimer(){
+  stopTimer();
+  seconds = 0;
+  updateTimerDisplay(seconds);
+  timerInterval = setInterval(()=>{
+    seconds++;
+    updateTimerDisplay(seconds);
+  },1000);
 }
-
+function stopTimer(){
+  if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
+}
 function updateTimerDisplay(sec){
-  const m = String(Math.floor(sec/60)).padStart(3,'0'); // allow >99 minutes
+  const m = String(Math.floor(sec/60)).padStart(2,'0');
   const s = String(sec%60).padStart(2,'0');
   const el = document.getElementById('timer');
   if(el) el.textContent = `Time: ${m}:${s}`;
 }
 
-/* ---------- Load & Render ---------- */
+/* Load a question into UI using your required styles & spacing */
 function loadQuestion(){
-  // disable nav buttons until answer
-  document.getElementById('btnContinueNav').disabled = true;
-  document.getElementById('btnBack').disabled = currentIndex === 0;
-
   if(currentIndex >= totalQuestions){
-    stopCountdown();
+    stopTimer();
     showScore();
     return;
   }
   const q = questions[currentIndex];
-
+  // question counter + label
   document.getElementById("questionCounter").textContent = `Q${currentIndex+1} / ${totalQuestions}`;
   document.getElementById("questionLabel").textContent = `${q.section || 'General'} — ${q.topic || ''}`;
+  // progress
+  updateProgress(currentIndex, totalQuestions);
 
+  // question text - big embossed left-aligned
+  const qText = `Q${q.number || (currentIndex+1)}: ${q.question || ''}`;
   const questionBox = document.getElementById("questionBox");
-  questionBox.textContent = `Q${q.number || (currentIndex+1)}: ${q.question || ''}`;
+  questionBox.textContent = qText;
 
-  // options set
+  // options - each option in its own container; larger font and spacing
   const optA = document.getElementById("optA");
   const optB = document.getElementById("optB");
   const optC = document.getElementById("optC");
@@ -511,114 +469,108 @@ function loadQuestion(){
   optC.textContent = `C. ${q.options && q.options[2] ? q.options[2] : ''}`;
   optD.textContent = `D. ${q.options && q.options[3] ? q.options[3] : ''}`;
 
-  // clear classes & enable
+  // ensure big tap targets & clear classes
   ["optA","optB","optC","optD"].forEach(id=>{
     const el = document.getElementById(id);
     el.classList.remove("correct","incorrect");
     el.disabled = false;
+    // enlarge spacing (already controlled by CSS)
   });
 
-  // clear rationale
+  // clear message area
   const msg = document.getElementById("msg");
   msg.style.display = 'none';
   msg.textContent = '';
 
+  // show question & options
+  document.getElementById("questionBox").style.display = "block";
+  document.getElementById("optionsArea").style.display = "block";
   updatePercentDisplay();
 }
 
-/* ---------- Selection & nav logic ---------- */
+/* Option selected - apply correct/incorrect highlights and rationale durations */
 function selectOption(letter){
-  // prevent double click
-  const chosenId = 'opt' + letter;
-  const chosenEl = document.getElementById(chosenId);
-  if(!chosenEl || chosenEl.disabled) return;
+  // prevent double clicks
+  const btnId = 'opt' + letter;
+  const btn = document.getElementById(btnId);
+  if(btn.disabled) return;
 
-  const q = questions[currentIndex];
-  const correct = q.correct; // should be 'A'..'D'
-  // disable options
+  const current = questions[currentIndex];
+  const correct = current.correct; // 'A'/'B'/'C'/'D'
+
+  // disable all buttons immediately to prevent double clicks
   ["A","B","C","D"].forEach(l=>{
     const el = document.getElementById('opt' + l);
-    if(el) el.disabled = true;
+    if(el){ el.disabled = true; }
   });
 
-  // mark correct and selected
+  // highlight correct and selected
   ["A","B","C","D"].forEach(l=>{
     const el = document.getElementById('opt' + l);
     if(!el) return;
-    if(l === correct) el.classList.add('correct');
-    if(l === letter && l !== correct) el.classList.add('incorrect');
+    if(l === correct){
+      el.classList.add('correct');
+    }
+    if(l === letter && l !== correct){
+      el.classList.add('incorrect');
+    }
   });
 
-  // update counts & show rationale
+  // update counts & sound/rationale
   if(letter === correct){
     correctCount++;
-    // sound
+    // play inspiring sound for correct
     playAudio('audioCorrect');
-    showRationaleShort(q.rationale || 'Correct!');
+    showRationaleShort(current.rationale || 'Correct!');
   } else {
     incorrectCount++;
-    // no sound for wrong
-    const rationaleText = q.rationale ? q.rationale : `Wrong. Correct: ${correct}`;
-    showRationaleLong(rationaleText);
+    // no sound for wrong; show rationale longer
+    showRationaleLong(current.rationale || `Wrong. Correct: ${correct}`);
   }
 
-  // enable Continue so user can move on
-  document.getElementById('btnContinueNav').disabled = false;
-
-  // update percent immediately (based on answered so far)
+  currentIndex++;
+  updateProgress(currentIndex, totalQuestions);
   updatePercentDisplay();
+
+  // after delay (short for correct, longer for wrong), load next or show score
+  const delay = (letter === correct) ? 900 : 1800; // wrong twice time duration
+  setTimeout(()=>{
+    if(currentIndex < totalQuestions){
+      loadQuestion();
+    } else {
+      stopTimer();
+      showScore();
+    }
+  }, delay);
 }
 
-/* Back nav: go previous (review only) */
-document.getElementById('btnBack').addEventListener('click', ()=>{
-  if(currentIndex === 0) return;
-  currentIndex--;
-  // When reviewing, we won't allow re-answering previously answered question.
-  // To reflect original flow, we mark options disabled if already answered counts included.
-  // For simplicity: load question and disable options (review mode) if it was answered.
-  // We don't store per-question answers in this simple integration — if you want review+answer changes, tell me.
-  loadQuestion();
-});
-
-/* Continue nav: go next question (must have answered current) */
-document.getElementById('btnContinueNav').addEventListener('click', ()=>{
-  // move to next
-  currentIndex++;
-  if(currentIndex < totalQuestions){
-    loadQuestion();
-  } else {
-    stopCountdown();
-    showScore();
-  }
-});
-
-/* Rationale helpers: short vs long display */
+/* Rationale display helpers */
 function showRationaleShort(text){
   const msg = document.getElementById('msg');
   msg.style.display = 'block';
   msg.textContent = text;
-  msg.style.color = '#0b5aa6';
-  // hide after short duration (still require Continue to move on)
-  setTimeout(()=>{ /* keep visible until continue, but auto-hide after short period */ msg.style.display = 'block'; }, 1400);
+  msg.style.color = '#002d72';
+  // hide after short duration
+  setTimeout(()=>{ msg.style.display = 'none'; msg.textContent = ''; }, 1400);
 }
 
 function showRationaleLong(text){
   const msg = document.getElementById('msg');
   msg.style.display = 'block';
   msg.textContent = text;
-  msg.style.color = '#0b5aa6';
-  // keep visible longer; user still must press Continue
-  setTimeout(()=>{ /* keep visible */ msg.style.display = 'block'; }, 3000);
+  msg.style.color = '#002d72';
+  // hide after longer duration (twice)
+  setTimeout(()=>{ msg.style.display = 'none'; msg.textContent = ''; }, 3000);
 }
 
-/* update progress bar */
+/* progress bar */
 function updateProgress(index, total){
   const pct = total > 0 ? Math.round((index/total) * 100) : 0;
   const bar = document.getElementById("progressBar");
   if(bar) bar.style.width = pct + "%";
 }
 
-/* percent display update */
+/* percent display (top-right) */
 function updatePercentDisplay(){
   const answered = correctCount + incorrectCount;
   const percent = answered === 0 ? 0 : Math.round((correctCount / answered) * 100);
@@ -626,47 +578,23 @@ function updatePercentDisplay(){
   if(el) el.textContent = `Correct: ${percent}%`;
 }
 
-/* stop countdown */
-function stopCountdown(){
-  if(countdownInterval){ clearInterval(countdownInterval); countdownInterval = null; }
-}
-
-/* finish due to timeout */
-function finishDueToTimeout(){
-  // disable options and nav
-  ["optA","optB","optC","optD"].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el) el.disabled = true;
-  });
-  document.getElementById('btnContinueNav').disabled = true;
-  document.getElementById('btnBack').disabled = true;
-  // show score
-  showScore(true);
-}
-
-/* show score / end report summary */
-function showScore(timeout=false){
+/* show final score (keeps original showScore behavior but with our updated counts) */
+function showScore(){
   const total = totalQuestions || 1;
   const score = Math.round((correctCount/total)*100);
   const status = score >= 70 ? "PASS" : "NOT PASS";
-
-  // compute time spent
-  const timeSpentSec = (500 * 60) - countdownSeconds;
-  const m = Math.floor(timeSpentSec/60);
-  const s = timeSpentSec % 60;
-  const timeText = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 
   document.getElementById("quizBox").scrollTop = 0;
   document.getElementById("quizBox").style.alignItems = "center";
 
   document.getElementById("quizBox").querySelector(".quiz-inner").innerHTML = `
     <div class="score-card">
-      <h2>Test Completed ${timeout ? '(Time Ended)' : ''}</h2>
+      <h2>Test Completed</h2>
       <div style="font-size:20px; font-weight:800; margin-top:6px">${score}% — ${status}</div>
       <div class="score-vals">
         <div>✅ Correct<br><strong>${correctCount}</strong></div>
         <div>❌ Incorrect<br><strong>${incorrectCount}</strong></div>
-        <div>⏱ Time<br><strong>${timeText}</strong></div>
+        <div>📚 Total<br><strong>${total}</strong></div>
       </div>
       <div style="margin-top:16px">
         <button id="btnBackToHomeAfterScore" class="back-home" style="margin-right:10px">Back to Home</button>
@@ -675,9 +603,10 @@ function showScore(timeout=false){
     </div>
   `;
 
-  // wire up score card buttons
+  // wire up buttons on score card
   document.getElementById("btnBackToHomeAfterScore").addEventListener("click", ()=>{
     resetQuiz();
+    // restore original landing & quiz inner
     document.getElementById("quizBox").style.display = "none";
     document.getElementById("landingPage").style.display = "flex";
     restoreQuizInner();
@@ -690,17 +619,19 @@ function showScore(timeout=false){
   });
 }
 
-/* reset quiz state */
+/* reset quiz state and UI helper */
 function resetQuiz(){
   questions = []; currentIndex = 0; correctCount = 0; incorrectCount = 0; totalQuestions = 0;
-  updateProgress(0,0);
+  document.getElementById("progressBar").style.width = "0%";
+  document.getElementById("questionCounter").textContent = "Q0 / 0";
+  document.getElementById("questionLabel").textContent = "";
+  document.getElementById("msg").textContent = "";
+  updateTimerDisplay(0);
   updatePercentDisplay();
-  stopCountdown();
-  countdownSeconds = 500 * 60;
-  updateTimerDisplay(countdownSeconds);
+  stopTimer();
 }
 
-/* restore quiz-inner to original markup (after score) */
+/* restore quiz-inner to the original structure after score */
 function restoreQuizInner(callback){
   const quizInner = document.querySelector(".quiz-inner");
   quizInner.innerHTML = `
@@ -712,10 +643,9 @@ function restoreQuizInner(callback){
           <div style="font-size:13px; color:rgba(4,45,98,0.7)" id="questionLabel">Section & Topic</div>
         </div>
       </div>
-
       <div style="width:40%; min-width:160px; display:flex; align-items:center; justify-content:flex-end;">
         <div class="status-box" aria-hidden="false">
-          <div class="status-item" id="timer">Time: 500:00</div>
+          <div class="status-item" id="timer">Time: 00:00</div>
           <div class="status-item" id="percent">Correct: 0%</div>
         </div>
       </div>
@@ -737,35 +667,14 @@ function restoreQuizInner(callback){
       </div>
 
       <div id="msg" aria-live="polite"></div>
-
-      <div class="quiz-nav" aria-hidden="false">
-        <button id="btnBack" class="btn-back" title="Back" disabled>Back</button>
-        <div style="flex:1"></div>
-        <button id="btnContinueNav" class="btn-continue" title="Continue" disabled>Continue</button>
-      </div>
-
       <div id="scorebox"></div>
     </div>
   `;
-  // reattach event handlers
+  // rebind backHome
   document.getElementById("backHome").addEventListener("click", ()=>{
     document.getElementById("quizBox").style.display = "none";
     document.getElementById("landingPage").style.display = "flex";
     resetQuiz();
-  });
-  document.getElementById('btnBack').addEventListener('click', ()=>{
-    if(currentIndex === 0) return;
-    currentIndex--;
-    loadQuestion();
-  });
-  document.getElementById('btnContinueNav').addEventListener('click', ()=>{
-    currentIndex++;
-    if(currentIndex < totalQuestions){
-      loadQuestion();
-    } else {
-      stopCountdown();
-      showScore();
-    }
   });
   if(typeof callback === "function") callback();
 }
@@ -778,10 +687,15 @@ function playAudio(id){
   }catch(e){console.warn(e)}
 }
 
-/* wire initial button listeners (landing) */
+/* wire initial button listeners (unchanged) */
 document.getElementById('btnDemo').addEventListener('click', ()=>{ document.getElementById('btnDemo').classList.remove('pulse'); demoTest(); setTimeout(()=>document.getElementById('btnDemo').classList.add('pulse'), 3500); });
 document.getElementById('btnConfirm').addEventListener('click', confirmation);
 document.getElementById('btnContinue').addEventListener('click', continueTest);
+document.getElementById('backHome').addEventListener('click', ()=>{
+  document.getElementById("quizBox").style.display = "none";
+  document.getElementById("landingPage").style.display = "flex";
+  resetQuiz();
+});
 
 </script>
 </body>
