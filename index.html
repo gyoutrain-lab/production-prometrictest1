@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>🩺 Nursing Prometric Actual Simulation Test</title>
 
-<meta property="og:title" content="🩺Nursing Prometric Actual Simulation Test">
-<meta property="og:description" content="500 tricky & hard level test items with rationale. Based on Prometric, SMLE & NCLEX.">
+<meta property="og:title" content="🩺 Nursing Prometric Actual Simulation Test">
+<meta property="og:description" content="500 tricky & hard-level test items with rationale. Based on Prometric, SMLE & NCLEX.">
 <meta property="og:image" content="https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest1/main/assets/icon17%20(1).jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -334,6 +334,85 @@ const demoBackend = "https://script.google.com/macros/s/AKfycbwvKxmFkKqMAMqqZ49B
 /* Utility */
 function flash(msg){ alert(msg); }
 
+/* ----------------------------
+   UI Click Sound (A+1)
+   - Embedded synth via WebAudio (no external file)
+   - Plays a short "button click" on button presses only
+   ---------------------------- */
+(function(){
+  // Use WebAudio API to synthesize a very short click (avoid external assets)
+  let audioCtx = null;
+  function ensureCtx(){
+    if(!audioCtx){
+      try{
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }catch(e){
+        audioCtx = null;
+      }
+    }
+    return audioCtx;
+  }
+
+  function playClick(){
+    const ctx = ensureCtx();
+    if(!ctx) return;
+    const now = ctx.currentTime;
+    // tiny noise burst for click-like sound
+    const bufferSize = 2 * ctx.sampleRate * 0.01; // short 10ms buffer (2 channels)
+    const buffer = ctx.createBuffer(1, Math.floor(bufferSize), ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    // generate quick decaying noise
+    for(let i=0;i<data.length;i++){
+      const amp = (1 - i/data.length);
+      data[i] = (Math.random()*2 - 1) * amp * 0.22;
+    }
+    const src = ctx.createBufferSource();
+    src.buffer = buffer;
+
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(1, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+
+    src.connect(gain).connect(ctx.destination);
+    try{ src.start(now); }catch(e){}
+    // stop shortly after
+    try{ src.stop(now + 0.05); }catch(e){}
+  }
+
+  // attach sound to interactive elements
+  const selectors = [
+    '.btn',
+    '.btn-back',
+    '.btn-continue',
+    '.option-btn',
+    '.back-home',
+    'button'
+  ];
+  const attached = new Set();
+  function attachAll(){
+    selectors.forEach(sel=>{
+      document.querySelectorAll(sel).forEach(el=>{
+        if(!el || attached.has(el)) return;
+        // use pointerdown for snappy feel
+        if('onpointerdown' in window){
+          el.addEventListener('pointerdown', ()=>{ playClick(); }, {passive:true});
+        } else {
+          el.addEventListener('click', ()=>{ playClick(); }, {passive:true});
+        }
+        attached.add(el);
+      });
+    });
+  }
+  // initial attach and some delayed re-attaches to catch dynamic DOM changes
+  attachAll();
+  [200,800,1600].forEach(delay => setTimeout(attachAll, delay));
+  try{
+    const obs = new MutationObserver(()=> attachAll());
+    obs.observe(document.body, { childList:true, subtree:true });
+    setTimeout(()=> obs.disconnect(), 30000);
+  }catch(e){}
+})();
+
 /* DEMO & CONFIRM (unchanged handlers) */
 function demoTest(){
   const name = document.getElementById("name").value.trim();
@@ -390,7 +469,7 @@ async function continueTest(){
 }
 
 /* BACK TO HOME */
-document.getElementById("backHome").addEventListener("click", ()=>{
+document.getElementById("backHome").addEventListener("click", ()=>{ 
   document.getElementById("quizBox").style.display = "none";
   document.getElementById("quizBox").setAttribute("aria-hidden","true");
   document.getElementById("landingPage").style.display = "flex";
@@ -398,7 +477,7 @@ document.getElementById("backHome").addEventListener("click", ()=>{
 });
 
 /* =========================
-   QUIZ logic & UI helpers (UPDATED)
+   QUIZ logic & UI helpers (UNCHANGED)
    ========================= */
 
 let questions = [];
